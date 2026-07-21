@@ -16,3 +16,24 @@ All prompts given during this project, verbatim, with timestamps.
 4. **JLC fab/assembly rules**: "4-layer capabilities (track/space, via, stackup, colors), Economic vs Standard assembly (THT? both sides? fees), exact BOM/CPL file formats and column names, KiCad→JLC rotation corrections, gerber layer requirements, min board size for ~40x20mm board."
 
 (Full verbatim agent prompts preserved in the session; condensed here for readability.)
+
+### 2026-07-21 22:45 — JLC CPL rotation research agent
+
+"Research JLCPCB pick-and-place rotation conventions... QFN-28 for STM32L031
+(consensus of matthewlai/Bouni/KiBot databases vs Fabrication-Toolkit),
+bottom-side formula from Fabrication-Toolkit process.py source, verify JLC
+placement preview exists as pre-payment safety net." → Result: +270° for QFN,
+bottom = (180 − rot + offset) mod 360, preview editable before payment.
+
+### 2026-07-21 23:58 — Independent review agents (design frozen)
+
+1. **Electrical review**: adversarial check of netlist vs STM32L031 UFQFPN28
+   pinout, SWD/TC2030 pin order, display current budget vs GPIO ratings,
+   CC multiplex logic vs firmware pin map, LSE loading, blank-chip first
+   flash, EXTI vector, VDDA tie, RTC math. Findings ranked
+   BLOCKER/MAJOR/MINOR/NIT with evidence.
+2. **Firmware review**: RM0377-level check of RCC/PWR/RTC init order,
+   LSEDRV-before-LSEON, shadow register staleness after Stop wake (RSF),
+   EXTI config arithmetic, BSRR patterns vs SWD pins, vector table, linker,
+   freestanding-libc pitfalls, calendar math transcription, DST/timezone
+   seeding, Stop-mode leakage paths.
