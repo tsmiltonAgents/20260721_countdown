@@ -81,6 +81,60 @@ JLC DFM, BOM stock) → firmware compiles against the real pinout.
 | Passives 0603 | 100n C14663, 1µ C15849, 10µ C19702, 10k C25804, 330R C23138, 470R C23179 | — | all **Basic** | |
 | SWD | Tag-Connect TC2030-IDC-NL footprint | none | zero BOM | **no paste apertures**, NPTH Ø0.99mm locating holes |
 
+## 2026-07-21 21:40 — MCU + display locked; final BOM
+
+**MCU: STM32L031G6U6** (C96514, Extended, ~1.8k stock, $0.94). UFQFPN28 4×4.
+0.6–0.8 µA in Stop with RTC-on-LSE and full RAM retention — the exact
+architecture this product wants. 17 free GPIO vs 13 needed. Gotchas captured:
+BOOT0 needs 10k pulldown, VDDA tie to VDD + 100n, NRST 100n, KiCad official
+footprint = QFN-28_4x4mm_P0.5mm (no EP paste — matches ST UFQFPN28 practice).
+CH32V003 formally disqualified (no LSE/RTC — LSI RC only, % drift).
+
+**Display: XINGLIGHT XL-SA2401SRWC** (C49652871, Extended, 621 stock, $1.64).
+0.2" 4-digit SMD, red 620 nm, **Vf 1.8 min** (runs from a coin cell), **common
+cathode**, 28.5×10×3.0 mm, reflow 245 °C. Pin map read from datasheet p.4
+(verified with my own eyes, incl. schematic diagram): bottom row L→R
+1=E 2=D 3=DP 4=C 5=G 6=DIG4; top row R→L 7=B 8=DIG3 9=DIG2 10=F 11=A 12=DIG1.
+Land pattern decoded from the mechanical drawing: **6 signal pads per row on
+2.54 mm pitch (12.7 mm span, centered) + 2 mechanical anchor pads per row at
+±11.43 mm** (22.86 dim); pads ~2.0 wide × 1.5 tall wrapping the edge; Ø1.5
+mold-gate marks on the underside between rows → no vias under the body on the
+front layer. Datasheet current guidance: dynamic average 4–5 mA, peak 100 mA.
+
+**Drive design:** segments PA0–PA7 source through 330 Ω (C23138): ~2 mA/seg
+at 3.0 V fresh cell, self-dimming as the cell sags (wristwatch behaviour, and
+a free battery gauge). Digit commons sink on PB0/PB1/PA8/PA9 — worst-case
+digit sink ~17 mA < 25 mA abs max, and firmware can phase segments if needed.
+Battery: ~0.26 mAh/day at 10 views/day → **~2 years on a CR2032**, dominated
+by display use, sleep floor ~1 µA.
+
+**Firmware written and compiling** (2.9 KB, arm-none-eabi-gcc 16, freestanding,
+register-level, no HAL): RTC on LSE seeded from build timestamp at first boot,
+Stop-mode sleep, button EXTI wake, 125 Hz multiplex, hours → minutes switch at
+<100 h, 0.0.0.0 at arrival. Local-time RTC is DST-safe (target inside BST).
+
+**Final BOM (10 line items, 3 Extended):**
+| Ref | Part | LCSC |
+|---|---|---|
+| U1 | STM32L031G6U6 QFN28 | C96514 (Ext) |
+| DS1 | XL-SA2401SRWC 4-dig 7-seg red CC | C49652871 (Ext) |
+| BT1 | MYOUNG BS-08-B2AA001 CR2032 SMD | C964777 (Ext) |
+| Y1 | Epson Q13FC13500004 32.768k 12.5pF | C32346 (Basic) |
+| SW1 | XKB TS-1187A-B-A-B | C318884 (Basic) |
+| R1–R8 | 330 Ω 0603 | C23138 (Basic) |
+| R9 | 10 kΩ 0603 (BOOT0 pull-down) | C25804 (Basic) |
+| C1,C2,C3 | 100 nF 0603 | C14663 (Basic) |
+| C4 | 1 µF 0603 | C15849 (Basic) |
+| C5,C6 | 10 µF 0603 (display pulse bulk) | C19702 (Basic) |
+| C7,C8 | 15 pF 0603 (LSE load) | C1644 (Basic) |
+| J1 | Tag-Connect TC2030-IDC-NL | no part |
+
+**Form factor:** ~42×22 mm rounded, 4-layer, double-sided **Standard** assembly
+(Economic is single-sided-only; the battery holder needs the back). Front:
+display + button + segment resistors + MCU + crystal. Back: CR2032 holder +
+TC2030 + remaining passives. Keyring hole Ø4 NPTH in a corner tab. Black
+soldermask + ENIG for the bare-board look (color choice = user's at order).
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.
