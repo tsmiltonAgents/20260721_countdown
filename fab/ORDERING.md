@@ -39,9 +39,8 @@ Files in this directory:
      of each digit, pin 1 bottom-left.
   3. **BT1** (battery holder): "+" tab on the right (toward the MCU end),
      insertion mouth toward the keyring hole.
-  4. **SW1**: square 4-pad switch, any 0/180° is fine, 90° is also
-     electrically fine here (pads are symmetric) — just confirm it sits on
-     its pads.
+  4. **SW1**: wired diagonally (pins 1+4), so ANY rotation is electrically
+     correct — just confirm it sits on its pads.
   The editor lets you rotate parts in-browser before paying — use it if
   anything looks off, and note the correction in designlog.md.
 
@@ -56,5 +55,12 @@ Files in this directory:
    to 2026-10-10 12:00 light up.
 3. Split ring through the Ø4 hole. Done.
 
-Battery notes: display brightness tracks the cell voltage (it dims as the
-cell ages — that's your battery gauge). Expect ~2 years typical use.
+Battery notes:
+- Display brightness tracks the cell voltage (it dims as the cell ages —
+  that's your battery gauge). Expect ~2 years typical use.
+- On first power-up after flashing, all four decimal points flash 3× =
+  "clock was just seeded". If you ever see that after a battery swap
+  WITHOUT having just flashed, the countdown is stale — rebuild + reflash
+  (the RTC seed comes from the firmware build timestamp).
+- Near end of life the display may stutter/reset during the 8 s show;
+  timekeeping still survives. Replace the cell.

@@ -189,6 +189,53 @@ The user asked for an autorouter rather than hand-routing: the A* router is
 exactly that — deterministic, collision-checked, and verified by DRC; no
 trace was drawn by hand.
 
+## 2026-07-22 00:50 — Independent reviews (electrical + firmware): outcomes
+
+Two adversarial review agents audited the frozen design. **The netlist came
+back fully verified — every one of U1's 28 pins, the SWD/TC2030 order, the
+EXTI vector position, the FONT bit order and the RTC BCD packing checked
+node-by-node (the RTC calendar math was fuzz-tested against Python datetime
+over 20,000 dates: exact).** Findings that drove changes:
+
+1. **BLOCKER (fixed)**: `make flash` could program a stale binary → stale
+   RTC seed, silently wrong countdown, sticky across reflashes. The flash
+   target now forces a rebuild so the seed is always flash-time.
+2. **MAJOR (fixed)**: after Stop-mode wake the RTC shadow registers are
+   stale (RM0377 RSF) → first ~240 ms could show an hours-old count. Fixed
+   by enabling BYPSHAD once; the double-read loop already implemented the
+   matching RM-prescribed pattern.
+3. **MAJOR (fixed, hardware)**: the switch was wired using both pins of each
+   internally-commoned pair — correct only if the pairing runs along the
+   long edges. Rewired **diagonally (pins 1 and 4 only)**: a diagonal spans
+   the contact under either pairing hypothesis. Orientation-proof by
+   construction; netlist regenerated and re-verified (81 nodes).
+4. MINOR (fixed): LSEDRV now written before LSEON (RM rule); LSERDY wait
+   bounded with a distinctive segment-G error blink for a dead crystal;
+   PRER written sync-then-async; vector table fully armed with
+   Default_Handler; const vector table (RWX warning gone, ENTRY() added);
+   clock-enable dummy reads; _Static_assert pinning the segment mapping;
+   Makefile timezone via tm_gmtoff; stuck-button wait-for-release.
+5. MINOR (accepted, documented): worst-case digit sink ~19-21 mA is above
+   the 16 mA characterized point but under the 25 mA abs max — accepted for
+   a pulsed novelty display (uneven brightness on "8." worst case). 15 pF
+   LSE loading runs the clock ~10-25 ppm fast ≈ 2-4 min over the countdown —
+   invisible at hour resolution. Battery-swap re-seeds the RTC from the old
+   build timestamp: mitigated by a triple-DP "seeded" flash at power-on +
+   documented "battery swap ⇒ reflash". End-of-life cells may brown-out
+   during display (stuttering display = replace battery; timekeeping
+   survives above POR).
+
+## 2026-07-22 01:00 — C2 was the villain
+
+The recurring routing failures at the QFN south face traced to a single
+placement mistake: **C2 (VDDA decoupler) sat at (37.4, 1.4) — dead centre of
+the QFN bottom-row escape field.** Every bottom-row net and two power vias
+had to thread around it. Moved to (35.8, 9.6) (VDDA=VDD is a static rail
+here; 6 mm to pin 5 through the plane is fine). Routing completion jumped
+immediately. The final flow loops the fully-scripted
+generate→fanout→route→repair pipeline until a round closes at exactly
+0 DRC violations / 0 unconnected — the accept-only-perfect criterion.
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.
