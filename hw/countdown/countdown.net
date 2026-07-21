@@ -1,0 +1,2748 @@
+(export
+	(version "E")
+	(design
+		(source "/Users/milton/Documents/claude_sessions/072026/20_countdown/hw/countdown/countdown.kicad_sch")
+		(date "2026-07-21T21:46:11")
+		(tool "Eeschema 10.0.4")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "Keyring countdown to 2026-10-10 12:00")
+				(company)
+				(rev "A")
+				(date "2026-07-21")
+				(source "countdown.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "BT1")
+			(value "BS-08-B2AA001")
+			(footprint "countdown:BS-08-B2AA001")
+			(fields
+				(field
+					(name "LCSC") "C964777")
+				(field
+					(name "Footprint") "countdown:BS-08-B2AA001")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "countdown")
+				(part "CR2032_BS08")
+				(description "")
+			)
+			(property
+				(name "LCSC")
+				(value "C964777")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0be1c6ee-763c-4380-9d17-de981cc1c04c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C1")
+			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C14663")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "16d0606f-e6fa-4e90-a880-519aa55220b0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C14663")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6f21fec2-6e9a-4335-a7e9-5cc3ea01732b")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C3")
+			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C14663")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8e74b2f2-4949-4767-a73a-a91531915f79")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C4")
+			(value "1uF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C15849")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C15849")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d69a5ee8-ff2e-4063-9e30-e49f032ff305")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C5")
+			(value "10uF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C19702")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C19702")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2e479d02-12e5-4995-ab28-b6a23397db23")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C6")
+			(value "10uF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C19702")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C19702")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ec075aeb-a1cd-4e3c-b115-8141c37894d0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C7")
+			(value "15pF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C1644")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C1644")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "789d6257-cdc9-41cd-bb33-755c6f79f37f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C8")
+			(value "15pF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C1644")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC")
+				(value "C1644")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "464b3cd6-e7eb-4e6b-8a67-4315bf0a2b86")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "DS1")
+			(value "XL-SA2401SRWC")
+			(footprint "countdown:XL-SA2401SRWC")
+			(fields
+				(field
+					(name "LCSC") "C49652871")
+				(field
+					(name "Footprint") "countdown:XL-SA2401SRWC")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "countdown")
+				(part "DISPLAY_4DIG")
+				(description "")
+			)
+			(property
+				(name "LCSC")
+				(value "C49652871")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f45689e2-85a0-4927-9d8c-eb72c41f1e2f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H1")
+			(value "KeyringHole")
+			(footprint "countdown:KeyringHole_4mm")
+			(fields
+				(field
+					(name "Footprint") "countdown:KeyringHole_4mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "MountingHole")
+				(description "Mounting Hole without connection")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "mounting hole")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "MountingHole*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "30d153e0-7a56-4cb5-8b9b-290d2e5ce33a")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "TC2030-SWD")
+			(footprint "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical")
+			(fields
+				(field
+					(name "Footprint") "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "countdown")
+				(part "TC2030")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "74678233-2d5a-4cf5-b4f4-2e7c596edcef")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0a45b289-8d82-44aa-ba10-da7b8dc6f3bb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8cbbd96e-0239-4f18-9358-9118eacd5881")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R3")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "cdf6274c-1da7-49e4-8f28-32090818f1e7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R4")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "adacd7cb-c7a5-4fa9-a17c-e733adb050c4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R5")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "17f18d98-9d88-4d0c-91a5-3c01a2a7c6ea")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R6")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c40e7f57-7911-495e-bf0d-f5aee60e64d8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R7")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "53f8b2a8-3215-469a-96f6-8deee944a27f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R8")
+			(value "330R")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C23138")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C23138")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3a6a3f2e-a433-4217-95b1-617f0e593e9c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R9")
+			(value "10k")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "LCSC") "C25804")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC")
+				(value "C25804")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0d652fb1-17d4-4f84-9032-1005e30ece4a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "SW1")
+			(value "TS-1187A-B-A-B")
+			(footprint "countdown:SW_TS-1187A")
+			(fields
+				(field
+					(name "LCSC") "C318884")
+				(field
+					(name "Footprint") "countdown:SW_TS-1187A")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "countdown")
+				(part "SW_TACT4")
+				(description "")
+			)
+			(property
+				(name "LCSC")
+				(value "C318884")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ea806ce1-eaba-4489-8064-5d17fdce6bad")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "STM32L031G6U6")
+			(footprint "Package_DFN_QFN:QFN-28_4x4mm_P0.5mm")
+			(fields
+				(field
+					(name "LCSC") "C96514")
+				(field
+					(name "Footprint") "Package_DFN_QFN:QFN-28_4x4mm_P0.5mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "countdown")
+				(part "STM32L031G6U6")
+				(description "STMicroelectronics Arm Cortex-M0+ MCU, 16-32KB flash, 8KB RAM, 32 MHz, 1.65-3.6V, 21 GPIO, UFQFPN28")
+			)
+			(property
+				(name "LCSC")
+				(value "C96514")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "Arm Cortex-M0+ STM32L0 STM32L0x1")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "QFN*4x4mm*P0.5mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e267fb6f-9bfe-4629-a3b9-746175a57db2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "27")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "24")
+						)
+						(pin
+							(num "25")
+						)
+						(pin
+							(num "26")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "17")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "28")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "18")
+						)
+						(pin
+							(num "19")
+						)
+						(pin
+							(num "20")
+						)
+						(pin
+							(num "21")
+						)
+						(pin
+							(num "22")
+						)
+						(pin
+							(num "23")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Y1")
+			(value "32.768kHz")
+			(footprint "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm")
+			(fields
+				(field
+					(name "LCSC") "C32346")
+				(field
+					(name "Footprint") "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "Crystal")
+				(description "Two pin crystal")
+			)
+			(property
+				(name "LCSC")
+				(value "C32346")
+			)
+			(property
+				(name "Sheetname")
+				(value "countdown")
+			)
+			(property
+				(name "Sheetfile")
+				(value "countdown.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "quartz ceramic resonator oscillator")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Crystal*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5ace5c78-b419-4cbb-a0ab-eaa327901452")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Device")
+			(part "C")
+			(description "Unpolarized capacitor")
+			(footprints
+				(fp "C_*")
+			)
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "Crystal")
+			(description "Two pin crystal")
+			(footprints
+				(fp "Crystal*")
+			)
+			(fields
+				(field
+					(name "Reference") "Y")
+				(field
+					(name "Value") "Crystal")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Two pin crystal")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "R")
+			(description "Resistor")
+			(footprints
+				(fp "R_*")
+			)
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Mechanical")
+			(part "MountingHole")
+			(description "Mounting Hole without connection")
+			(footprints
+				(fp "MountingHole*")
+			)
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "MountingHole")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+		)
+		(libpart
+			(lib "countdown")
+			(part "CR2032_BS08")
+			(fields
+				(field
+					(name "Reference") "BT")
+				(field
+					(name "Value") "CR2032_BS08")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "+")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "-")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "countdown")
+			(part "DISPLAY_4DIG")
+			(fields
+				(field
+					(name "Reference") "DS")
+				(field
+					(name "Value") "DISPLAY_4DIG")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "E")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "D")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "DP")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "C")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "G")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "DIG4")
+					(type "passive")
+				)
+				(pin
+					(num "7")
+					(name "B")
+					(type "passive")
+				)
+				(pin
+					(num "8")
+					(name "DIG3")
+					(type "passive")
+				)
+				(pin
+					(num "9")
+					(name "DIG2")
+					(type "passive")
+				)
+				(pin
+					(num "10")
+					(name "F")
+					(type "passive")
+				)
+				(pin
+					(num "11")
+					(name "A")
+					(type "passive")
+				)
+				(pin
+					(num "12")
+					(name "DIG1")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "countdown")
+			(part "STM32L031G6U6")
+			(description "STMicroelectronics Arm Cortex-M0+ MCU, 16-32KB flash, 8KB RAM, 32 MHz, 1.65-3.6V, 21 GPIO, UFQFPN28")
+			(docs "https://www.st.com/resource/en/datasheet/stm32l031g4.pdf")
+			(footprints
+				(fp "QFN*4x4mm*P0.5mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "STM32L031G_4-6_Ux")
+				(field
+					(name "Footprint") "Package_DFN_QFN:QFN-28_4x4mm_P0.5mm")
+				(field
+					(name "Datasheet") "https://www.st.com/resource/en/datasheet/stm32l031g4.pdf")
+				(field
+					(name "Description") "STMicroelectronics Arm Cortex-M0+ MCU, 16-32KB flash, 8KB RAM, 32 MHz, 1.65-3.6V, 21 GPIO, UFQFPN28")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "PC14")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "PC15")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "NRST")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "VDDA")
+					(type "power_in")
+				)
+				(pin
+					(num "6")
+					(name "PA0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "PA1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "PA2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "PA3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "PA4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "PA5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "12")
+					(name "PA6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "13")
+					(name "PA7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "14")
+					(name "PB0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "PB1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "16")
+					(name "VSS")
+					(type "power_in")
+				)
+				(pin
+					(num "17")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "18")
+					(name "PA8")
+					(type "bidirectional")
+				)
+				(pin
+					(num "19")
+					(name "PA9")
+					(type "bidirectional")
+				)
+				(pin
+					(num "20")
+					(name "PA10")
+					(type "bidirectional")
+				)
+				(pin
+					(num "21")
+					(name "PA13")
+					(type "bidirectional")
+				)
+				(pin
+					(num "22")
+					(name "PA14")
+					(type "bidirectional")
+				)
+				(pin
+					(num "23")
+					(name "PA15")
+					(type "bidirectional")
+				)
+				(pin
+					(num "24")
+					(name "PB3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "25")
+					(name "PB6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "26")
+					(name "PB7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "27")
+					(name "BOOT0")
+					(type "input")
+				)
+				(pin
+					(num "28")
+					(name "VSS")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "countdown")
+			(part "SW_TACT4")
+			(fields
+				(field
+					(name "Reference") "SW")
+				(field
+					(name "Value") "SW_TACT4")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "B")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "C")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "D")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "countdown")
+			(part "TC2030")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "TC2030")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VDD")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "SWDIO")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "NRST")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "SWCLK")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "GND")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "NC")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Device")
+			(uri "/Users/milton/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols/Device.kicad_sym")
+		)
+		(library
+			(logical "Mechanical")
+			(uri "/Users/milton/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols/Mechanical.kicad_sym")
+		)
+		(library
+			(logical "countdown")
+			(uri "${KIPRJMOD}/../lib/countdown.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "BOOT0")
+			(class "Default")
+			(node
+				(ref "R9")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "27")
+				(pinfunction "BOOT0_27")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "2")
+			(name "BTN")
+			(class "Default")
+			(node
+				(ref "SW1")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW1")
+				(pin "2")
+				(pinfunction "B_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "24")
+				(pinfunction "PB3_24")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "3")
+			(name "DIG_1")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "12")
+				(pinfunction "DIG1_12")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "14")
+				(pinfunction "PB0_14")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "4")
+			(name "DIG_2")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "9")
+				(pinfunction "DIG2_9")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "15")
+				(pinfunction "PB1_15")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "5")
+			(name "DIG_3")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "8")
+				(pinfunction "DIG3_8")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "18")
+				(pinfunction "PA8_18")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "6")
+			(name "DIG_4")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "6")
+				(pinfunction "DIG4_6")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "19")
+				(pinfunction "PA9_19")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "7")
+			(name "GND")
+			(class "Power,Default")
+			(node
+				(ref "BT1")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C1")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C3")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C6")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C7")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C8")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "5")
+				(pinfunction "GND_5")
+				(pintype "passive")
+			)
+			(node
+				(ref "R9")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW1")
+				(pin "3")
+				(pinfunction "C_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW1")
+				(pin "4")
+				(pinfunction "D_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "16")
+				(pinfunction "VSS_16")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "28")
+				(pinfunction "VSS_28")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "8")
+			(name "LED_A")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "11")
+				(pinfunction "A_11")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "9")
+			(name "LED_B")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "7")
+				(pinfunction "B_7")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "10")
+			(name "LED_C")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "4")
+				(pinfunction "C_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "R3")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "11")
+			(name "LED_D")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "2")
+				(pinfunction "D_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R4")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "12")
+			(name "LED_DP")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "3")
+				(pinfunction "DP_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "R8")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "13")
+			(name "LED_E")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "1")
+				(pinfunction "E_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R5")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "14")
+			(name "LED_F")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "10")
+				(pinfunction "F_10")
+				(pintype "passive")
+			)
+			(node
+				(ref "R6")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "15")
+			(name "LED_G")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "5")
+				(pinfunction "G_5")
+				(pintype "passive")
+			)
+			(node
+				(ref "R7")
+				(pin "2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "16")
+			(name "LSE_IN")
+			(class "Default")
+			(node
+				(ref "C7")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "PC14_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Y1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "17")
+			(name "LSE_OUT")
+			(class "Default")
+			(node
+				(ref "C8")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "PC15_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Y1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "18")
+			(name "NRST")
+			(class "Default")
+			(node
+				(ref "C3")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "NRST_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "NRST_4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "19")
+			(name "SEG_A")
+			(class "Default")
+			(node
+				(ref "R1")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "PA0_6")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "20")
+			(name "SEG_B")
+			(class "Default")
+			(node
+				(ref "R2")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "PA1_7")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "21")
+			(name "SEG_C")
+			(class "Default")
+			(node
+				(ref "R3")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "PA2_8")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "22")
+			(name "SEG_D")
+			(class "Default")
+			(node
+				(ref "R4")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "9")
+				(pinfunction "PA3_9")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "23")
+			(name "SEG_DP")
+			(class "Default")
+			(node
+				(ref "R8")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "13")
+				(pinfunction "PA7_13")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "24")
+			(name "SEG_E")
+			(class "Default")
+			(node
+				(ref "R5")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "10")
+				(pinfunction "PA4_10")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "25")
+			(name "SEG_F")
+			(class "Default")
+			(node
+				(ref "R6")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "11")
+				(pinfunction "PA5_11")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "26")
+			(name "SEG_G")
+			(class "Default")
+			(node
+				(ref "R7")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "12")
+				(pinfunction "PA6_12")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "27")
+			(name "SWCLK")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "4")
+				(pinfunction "SWCLK_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "22")
+				(pinfunction "PA14_22")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "28")
+			(name "SWDIO")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "SWDIO_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "21")
+				(pinfunction "PA13_21")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "29")
+			(name "VDD")
+			(class "Power,Default")
+			(node
+				(ref "BT1")
+				(pin "1")
+				(pinfunction "+_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C1")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C6")
+				(pin "1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "VDD_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "VDD_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "17")
+				(pinfunction "VDD_17")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "VDDA_5")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "30")
+			(name "unconnected-(J1-NC-Pad6)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "6")
+				(pinfunction "NC_6")
+				(pintype "passive+no_connect")
+			)
+		)
+		(net
+			(code "31")
+			(name "unconnected-(U1-PA10-Pad20)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "20")
+				(pinfunction "PA10_20")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "32")
+			(name "unconnected-(U1-PA15-Pad23)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "23")
+				(pinfunction "PA15_23")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "33")
+			(name "unconnected-(U1-PB6-Pad25)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "25")
+				(pinfunction "PB6_25")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "34")
+			(name "unconnected-(U1-PB7-Pad26)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "26")
+				(pinfunction "PB7_26")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+	)
+)

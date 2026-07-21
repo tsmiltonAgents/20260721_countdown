@@ -19,6 +19,8 @@ def exported_nets(path):
         nodes = {(str(find(nd, "ref")[1]), str(find(nd, "pin")[1]))
                  for nd in find_all(n, "node")
                  if not str(find(nd, "ref")[1]).startswith("#")}
+        if name.startswith("unconnected-") and len(nodes) == 1:
+            continue  # intentional no-connect pin
         if nodes:
             out[name] = nodes
     return out

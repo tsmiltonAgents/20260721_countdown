@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "countdown")(type "KiCad")(uri "${KIPRJMOD}/../lib/countdown.pretty")(options "")(descr "project footprints"))
+)

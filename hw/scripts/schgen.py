@@ -48,7 +48,8 @@ def symbol_pins(sym, unit=1):
             at = find(pin, "at")
             num = find(pin, "number")[1]
             nam = find(pin, "name")[1]
-            pins.append((str(num), str(nam), float(at[1]), float(at[2])))
+            ang = float(at[3]) if len(at) > 3 else 0
+            pins.append((str(num), str(nam), float(at[1]), float(at[2]), ang))
     # resolve "extends" (derived symbols) not handled here on purpose
     return pins
 
@@ -69,7 +70,15 @@ class Schematic:
         if lib_id in self.lib_symbols:
             return
         sym = [x for x in sym_def]  # shallow copy
+        old_base = str(sym_def[1]).split(":")[-1]
+        new_base = lib_id.split(":")[-1]
         sym[1] = lib_id
+        # sub-symbol (unit) names must match the parent symbol name
+        for i, child in enumerate(sym):
+            if isinstance(child, list) and child and child[0] == "symbol":
+                child = [x for x in child]
+                child[1] = new_base + str(child[1])[len(old_base):]
+                sym[i] = child
         self.lib_symbols[lib_id] = sym
         self.symbol_pins[lib_id] = symbol_pins(sym_def)
 
@@ -77,7 +86,8 @@ class Schematic:
               rotation=0, extra_fields=(), dnp=False):
         """Place a symbol instance. nets: {pin_number: net_name}. Every pin
         gets a label; pins absent from nets get a no-connect flag."""
-        X, Y = at
+        X = round(round(at[0] / 1.27) * 1.27, 4)
+        Y = round(round(at[1] / 1.27) * 1.27, 4)
         pins = self.symbol_pins[lib_id]
         pin_names = {n for n, *_ in pins}
         for p in nets:
@@ -107,7 +117,7 @@ class Schematic:
                      [S("font"), [S("size"), 1.27, 1.27]],
                      ([S("hide"), S("yes")] if hide else [S("justify"), S("left")])]]
             inst.append(prop)
-        for num, _, _, _ in pins:
+        for num, *_ in pins:
             inst.append([S("pin"), num, [S("uuid"), new_uuid()]])
         inst.append([S("instances"),
                      [S("project"), self.project,
@@ -117,10 +127,11 @@ class Schematic:
         self.netmap[ref] = dict(nets)
 
         # labels / no-connects at absolute pin positions
-        for num, name, px, py in pins:
+        for num, name, px, py, pang in pins:
             ax, ay = _pin_abs(X, Y, px, py, rotation)
             if num in nets:
-                self.labels.append(_global_label(nets[num], ax, ay))
+                lang = int((pang + 180 + rotation) % 360)
+                self.labels.append(_global_label(nets[num], ax, ay, lang))
             else:
                 self.labels.append([S("no_connect"), [S("at"), ax, ay],
                                     [S("uuid"), new_uuid()]])
@@ -177,12 +188,13 @@ def _pin_abs(X, Y, px, py, rotation):
     return round(X + dx, 4), round(Y + dy, 4)
 
 
-def _global_label(net, x, y):
+def _global_label(net, x, y, angle=0):
+    just = {0: "left", 90: "left", 180: "right", 270: "right"}[angle % 360]
     return [S("global_label"), net,
             [S("shape"), S("passive")],
-            [S("at"), x, y, 0],
+            [S("at"), x, y, angle % 360],
             [S("effects"), [S("font"), [S("size"), 1.27, 1.27]],
-             [S("justify"), S("left")]],
+             [S("justify"), S(just)]],
             [S("uuid"), new_uuid()]]
 
 
