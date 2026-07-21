@@ -28,7 +28,7 @@ TRACK_W = 0.2
 CLEAR = 0.27        # centreline to other-net copper edge (0.1+0.15 margin)
 VIA_D, VIA_DRILL = 0.6, 0.3
 VIA_CLEAR = 0.48    # via centre to other-net copper edge margin
-BOARD_W, BOARD_H = 44.0, 22.0
+BOARD_W, BOARD_H = 44.0, 23.0
 EDGE = 0.75         # centreline to board edge
 LAYERS = (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu)
 
@@ -49,7 +49,7 @@ class Obstacles:
         self.all_boxes = []                     # through obstacles (NPTH/PTH)
         for fp in board.GetFootprints():
             bb = fp.GetBoundingBox(False)
-            if fp.GetReference() in ("DS1", "U1", "SW1", "J1"):
+            if fp.GetReference() in ("DS1", "J1"):  # mold marks / TC2030 seat
                 self.novia_boxes.append((mm(bb.GetLeft()), mm(bb.GetTop()),
                                          mm(bb.GetRight()), mm(bb.GetBottom())))
             for pad in fp.Pads():
@@ -79,7 +79,7 @@ class Obstacles:
                     (mm(t.GetStart().x), mm(t.GetStart().y),
                      mm(t.GetEnd().x), mm(t.GetEnd().y), mm(t.GetWidth()) / 2))
         # keyring hole keepout ring + border handled by EDGE margin checks
-        self.all_circles.append((4.0, 11.0, 3.4))
+        self.all_circles.append((4.0, 11.5, 3.5))
 
     def build_grid(self):
         """Rasterize obstacles once: blocked cell sets per layer + via grid."""
@@ -123,12 +123,17 @@ class Obstacles:
                 mark_box(self.cells[l], *bx, CLEAR)
             for x1, y1, x2, y2, hw in self.segs[l]:
                 mark_seg(self.cells[l], x1, y1, x2, y2, hw + CLEAR)
-        # hard cells: other-net pad copper +0.12 — never enterable even in
-        # the endpoint exemption zones (prevents shorting through neighbours)
+        # hard cells: exact-minimum clearance obstacles (pad/track copper +
+        # 0.25/0.35) used inside endpoint exemption zones — a legal escape
+        # lane stays open there while shorts/clearance breaks stay blocked
         self.hard = {l: set() for l in LAYERS}
         for l in LAYERS:
             for bx in self.all_boxes + self.boxes[l]:
-                mark_box(self.hard[l], *bx, 0.12)
+                mark_box(self.hard[l], *bx, 0.26)
+            for cx, cy, r in self.all_circles:
+                mark(self.hard[l], cx, cy, r + 0.26)
+            for x1, y1, x2, y2, hw in self.segs[l]:
+                mark_seg(self.hard[l], x1, y1, x2, y2, hw + 0.26)
         # via legality grid: blocked on either layer with via clearance
         self.via_cells = set()
         for l in LAYERS:
@@ -299,7 +304,27 @@ def netcode_at(board, x, y):
     return None, None
 
 
+def compress(path):
+    """Merge consecutive collinear same-layer steps into single segments."""
+    if len(path) < 3:
+        return path
+    out = [path[0]]
+    for i in range(1, len(path) - 1):
+        x0, y0, l0 = out[-1]
+        x1, y1, l1 = path[i]
+        x2, y2, l2 = path[i + 1]
+        if l0 == l1 == l2:
+            v1 = (x1 - x0, y1 - y0)
+            v2 = (x2 - x1, y2 - y1)
+            if abs(v1[0] * v2[1] - v1[1] * v2[0]) < 1e-9:
+                continue  # collinear: skip middle point
+        out.append(path[i])
+    out.append(path[-1])
+    return out
+
+
 def add_path(board, path, netinfo):
+    path = compress(path)
     for i in range(len(path) - 1):
         (x1, y1, l1), (x2, y2, l2) = path[i], path[i + 1]
         if l1 != l2:
@@ -351,7 +376,8 @@ def fix_edge_vias(board):
 
 
 def main():
-    for it in range(8):
+    import os as _os
+    for it in range(int(_os.environ.get('REPAIR_ITERS', '8'))):
         pairs, _ = drc_unconnected()
         if not pairs:
             print("repair: no unconnected items remain")
@@ -368,13 +394,10 @@ def main():
                 continue
             la = la_hint or item_layer(board, ax, ay, ncode) or pcbnew.B_Cu
             lb = lb_hint or item_layer(board, bx, by, ncode) or pcbnew.B_Cu
-            if math.hypot(bx - ax, by - ay) < 1.2:
+            if (la_hint is not None and la_hint == lb_hint and
+                    0.05 < math.hypot(bx - ax, by - ay) < 1.2):
                 ni = board.FindNet(ncode)
-                if la == lb:
-                    add_path(board, [(ax, ay, la), (bx, by, lb)], ni)
-                else:
-                    add_path(board, [(ax, ay, la), (bx, by, la),
-                                     (bx, by, lb)], ni)
+                add_path(board, [(ax, ay, la), (bx, by, lb)], ni)
                 print(f"  stitched {nname} ({ax:.2f},{ay:.2f})~({bx:.2f},{by:.2f})")
                 done_nets.add(nname)
                 progress += 1

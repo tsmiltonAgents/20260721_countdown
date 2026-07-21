@@ -70,7 +70,7 @@
             600 -11500  858.809 -10198.9  1595.84 -9095.84  2698.88 -8358.81
             4000 -8100  5301.12 -8358.81  6404.16 -9095.84  7141.19 -10198.9
             7400 -11500))
-    (via "Via[0-3]_600:300_um")
+    (via "Via[0-3]_600:300_um"(type protect))
     (rule
       (width 200)
       (clearance 150)
@@ -110,8 +110,8 @@
       (place DS1 21350 -12000 front 0 (PN "XL-SA2401SRWC"))
     )
     (component C_0603_1608Metric
-      (place C8 34900 -2000 back 270 (PN 15pF))
-      (place C7 32400 -1900 back 270 (PN 15pF))
+      (place C8 32600 -7400 back 270 (PN 15pF))
+      (place C7 32600 -3400 back 270 (PN 15pF))
       (place C1 41500 -8800 back 270 (PN 100nF))
     )
     (component C_0603_1608Metric::1
@@ -119,7 +119,7 @@
       (place C5 4600 -2000 back 180 (PN 10uF))
       (place C4 8000 -1600 back 180 (PN 1uF))
       (place C3 33600 -18600 back 180 (PN 100nF))
-      (place C2 37100 -1400 back 180 (PN 100nF))
+      (place C2 35200 -1500 back 180 (PN 100nF))
     )
     (component "BS-08-B2AA001"
       (place BT1 19400 -11500 back 180 (PN "BS-08-B2AA001"))
@@ -651,9 +651,9 @@
     )
   )
   (wiring
-    (wire (path F.Cu 250  37100 -6997.5  37100 -9500)(net BTN)(type route))
-    (wire (path F.Cu 250  36602.5 -6500  36100 -7600)(net VDD)(type route))
-    (via "Via[0-3]_600:300_um"  37100 -9500 (net BTN)(type route))
-    (via "Via[0-3]_600:300_um"  36100 -7600 (net VDD)(type route))
+    (wire (path F.Cu 250  37100 -6997.5  37100 -9500)(net BTN)(type protect))
+    (wire (path F.Cu 250  36602.5 -6500  36100 -7600)(net VDD)(type protect))
+    (via "Via[0-3]_600:300_um"  37100 -9500 (net BTN)(type protect))
+    (via "Via[0-3]_600:300_um"  36100 -7600 (net VDD)(type protect))
   )
 )

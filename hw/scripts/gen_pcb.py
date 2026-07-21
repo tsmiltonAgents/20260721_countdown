@@ -31,13 +31,13 @@ LIBMAP = {
     "countdown": os.path.join(ROOT, "hw", "lib", "countdown.pretty"),
 }
 
-BOARD_W, BOARD_H, RAD = 44.0, 22.0, 3.0
+BOARD_W, BOARD_H, RAD = 44.0, 23.0, 3.0
 
 # ref: (x, y, rot_deg, side)
 PLACE = {
-    "H1":  (4.0, 11.0, 0, "F"),
-    "DS1": (21.35, 11.5, 0, "F"),
-    "SW1": (39.4, 11.0, 90, "F"),
+    "H1":  (4.0, 11.5, 0, "F"),
+    "DS1": (21.35, 12.0, 0, "F"),
+    "SW1": (39.4, 11.5, 90, "F"),
     # segment resistors: R1..R8 = A B C D E F G DP
     # bottom-row display pins (y+): 1=E 2=D 3=DP 4=C 5=G -> R5,R4,R8,R3,R7 below
     "R5": (14.0, 20.0, 0, "F"),   # E   (DS pin 1 at x=15.0)
@@ -50,18 +50,18 @@ PLACE = {
     "R6": (18.5, 2.0, 0, "F"),    # F   (pin 10 at 20.08)
     "R1": (14.5, 2.0, 0, "F"),    # A   (pin 11 at 17.54)
     # BACK
-    "BT1": (19.4, 11.0, 0, "B"),  # (+) tab right, mouth toward hole (empirical)
+    "BT1": (19.4, 11.5, 0, "B"),  # (+) tab right, mouth toward hole (empirical)
     "U1":  (38.6, 5.0, 0, "B"),
-    "Y1":  (37.1, 10.0, 90, "B"),
-    "C7":  (35.2, 7.0, 90, "B"),   # LSE_IN load
-    "C8":  (35.2, 11.4, 90, "B"),  # LSE_OUT load
+    "Y1":  (34.4, 5.6, 90, "B"),
+    "C7":  (32.4, 1.9, 90, "B"),   # LSE_IN load
+    "C8":  (34.9, 2.0, 90, "B"),  # LSE_OUT load
     "C1":  (41.5, 8.8, 90, "B"),   # 100n VDD (near pin 17 side)
-    "C2":  (36.0, 1.6, 0, "B"),    # 100n VDDA (near pin 5)
-    "C3":  (41.5, 1.5, 0, "B"),    # 100n NRST
-    "C4":  (38.6, 13.1, 0, "B"),   # 1u VDD
-    "C5":  (4.6, 1.9, 0, "B"),     # 10u bulk
-    "C6":  (4.6, 20.1, 0, "B"),    # 10u bulk
-    "R9":  (2.6, 6.5, 90, "B"),    # BOOT0 10k
+    "C2":  (37.1, 1.4, 0, "B"),    # 100n VDDA (near pin 5)
+    "C3":  (33.6, 18.6, 0, "B"),    # 100n NRST
+    "C4":  (8.0, 1.6, 0, "B"),   # 1u VDD
+    "C5":  (4.6, 2.0, 0, "B"),     # 10u bulk
+    "C6":  (4.6, 21.0, 0, "B"),    # 10u bulk
+    "R9":  (2.6, 7.0, 90, "B"),    # BOOT0 10k
     "J1":  (38.8, 18.5, 90, "B"),  # TC2030
 }
 
@@ -118,15 +118,49 @@ def rounded_rect(board, w, h, r):
     arc(r, h - r, r, h, 90)            # bottom-left: (r,h) -> (0,h-r)
 
 
+U1_POWER_VIAS = {
+    # pad: (via_x, via_y) — verified >=0.58 mm from all other-net pad copper
+    "1": (36.1, 7.6),    # VDD  (spot legal vs C7/SW1/pad28 on the bare board)
+    "28": (37.1, 9.5),   # GND  (clears SW1 F pads and Y1)
+}
+
+
+def add_u1_power_vias(board, netinfo):
+    u1 = board.FindFootprintByReference("U1")
+    for padnum, (vx, vy) in U1_POWER_VIAS.items():
+        pad = u1.FindPadByNumber(padnum)
+        net = pad.GetNetname()
+        px, py = pcbnew.ToMM(pad.GetPosition().x), pcbnew.ToMM(pad.GetPosition().y)
+        via = pcbnew.PCB_VIA(board)
+        via.SetPosition(pcbnew.VECTOR2I_MM(vx, vy))
+        via.SetWidth(pcbnew.FromMM(0.6))
+        via.SetDrill(pcbnew.FromMM(0.3))
+        via.SetViaType(pcbnew.VIATYPE_THROUGH)
+        via.SetNet(netinfo[net])
+        board.Add(via)
+        tr = pcbnew.PCB_TRACK(board)
+        tr.SetStart(pcbnew.VECTOR2I_MM(px, py))
+        tr.SetEnd(pcbnew.VECTOR2I_MM(vx, vy))
+        tr.SetWidth(pcbnew.FromMM(0.25))
+        tr.SetLayer(pad.GetLayer())
+        tr.SetNet(netinfo[net])
+        board.Add(tr)
+    print("U1 power vias:", len(U1_POWER_VIAS))
+
+
 def add_power_fanout(board, netinfo):
     import math
     VIA_D, VIA_DRILL, STUB_W = 0.6, 0.3, 0.3
     placed = []  # (x, y, netname)
+    for t in board.GetTracks():
+        if t.Type() == pcbnew.PCB_VIA_T:
+            placed.append((pcbnew.ToMM(t.GetPosition().x),
+                           pcbnew.ToMM(t.GetPosition().y), t.GetNetname()))
     obstacles = []  # (x, y, halfw, halfh, netname) pad boxes
     # no-fly bboxes: courtyards of dense/sensitive parts (QFN escape lanes,
     # display underside mold marks, switch, tag-connect field)
     nofly = []
-    for r in ("DS1", "U1", "SW1", "J1"):
+    for r in ("DS1", "J1"):
         f = board.FindFootprintByReference(r)
         bb = f.GetBoundingBox(False)
         box = (pcbnew.ToMM(bb.GetLeft()) - 0.15, pcbnew.ToMM(bb.GetTop()) - 0.15,
@@ -262,6 +296,15 @@ def main():
         if side == "B":
             fp.Flip(fp.GetPosition(), True)
         fp.SetOrientationDegrees(rot)
+        if ref == "U1":
+            # JLC tape orientation for QFN: +270 vs KiCad (matthewlai/Bouni/
+            # KiBot consensus) — MUST be eyeballed in the JLC placement
+            # preview before payment
+            fp.SetField("JLCROT", "270")
+            f2 = fp.GetField("JLCROT")
+            if f2 is not None:
+                f2.SetVisible(False)
+                f2.SetLayer(pcbnew.B_Fab)
         if lcsc:
             fp.SetField("LCSC", lcsc)
             fld = fp.GetField("LCSC")
@@ -331,8 +374,10 @@ def main():
                                                hy + kr * math.sin(a)))
     board.Add(ka)
 
-    if os.environ.get("FANOUT") == "1":
-        add_power_fanout(board, netinfo)
+    # power fanout happens post-route (fanout_post.py); only the two
+    # QFN-corner power pins are pre-fanned here (their pocket gets walled in
+    # by signal escapes otherwise)
+    add_u1_power_vias(board, netinfo)
 
     filler = pcbnew.ZONE_FILLER(board)
     filler.Fill(board.Zones())

@@ -14,7 +14,7 @@ CFLAGS = -mcpu=cortex-m0plus -mthumb -Os -g -Wall -Wextra -std=c11 -ffreestandin
          -ffunction-sections -fdata-sections -Ivendor \
          -DSTM32L031xx -DBUILD_UNIX_LOCAL=$(BUILD_UNIX_LOCAL)
 LDFLAGS = -mcpu=cortex-m0plus -mthumb -nostartfiles -Wl,--gc-sections \
-          -T stm32l031.ld -Wl,-Map=countdown.map -nostdlib -lgcc
+          -T stm32l031.ld -Wl,-Map=countdown.map -Wl,--no-warn-rwx-segments -nostdlib -lgcc
 
 SRCS = main.c startup.c
 

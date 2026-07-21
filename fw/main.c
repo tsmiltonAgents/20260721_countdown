@@ -42,9 +42,6 @@ static void civil_from_days(int32_t z, int32_t *y, uint32_t *m, uint32_t *d)
     *y = yy + (*m <= 2);
 }
 
-static const int64_t TARGET_EPOCH =
-    /* filled at run time is impossible in const; computed in code below */ 0;
-
 /* ---- display tables ---- */
 static const uint8_t FONT[10] = {
     /* gfedcba */
@@ -132,9 +129,8 @@ static void rtc_init_if_needed(void)
     int32_t y;
     uint32_t mo, d;
     civil_from_days(days, &y, &mo, &d);
-    uint32_t wd = (uint32_t)((days % 7 + 10) % 7 + 1); /* 1970-01-01 = Thu=4; +10? see note */
-    /* weekday: days since epoch, epoch was Thursday(4). ((days+3) mod 7)+1 gives Mon=1 */
-    wd = (uint32_t)(((days + 3) % 7) + 1);
+    /* weekday: epoch day 0 was a Thursday; ((days+3) mod 7)+1 gives Mon=1 */
+    uint32_t wd = (uint32_t)(((days + 3) % 7) + 1);
     RTC->TR = (bcd(sod / 3600) << 16) | (bcd((sod / 60) % 60) << 8) | bcd(sod % 60);
     RTC->DR = (bcd((uint32_t)(y - 2000)) << 16) | (wd << 13) |
               (bcd(mo) << 8) | bcd(d);
@@ -181,16 +177,11 @@ static void render_value(uint32_t v, int dp_digit, uint8_t out[4])
         out[i] = FONT[v % 10];
         v /= 10;
     }
-    /* blank leading zeros (keep last digit) */
-    for (int i = 0; i < 3 && out[i] == FONT[0]; i++) {
-        int all_zero_so_far = 1;
-        for (int j = 0; j <= i; j++)
-            if (out[j] != FONT[0])
-                all_zero_so_far = 0;
-        if (all_zero_so_far)
-            out[i] = 0;
-        else
+    /* blank leading zeros (keep the last digit) */
+    for (int i = 0; i < 3; i++) {
+        if (out[i] != FONT[0])
             break;
+        out[i] = 0;
     }
     if (dp_digit >= 0)
         out[dp_digit] |= 0x80;
