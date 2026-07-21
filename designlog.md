@@ -160,6 +160,35 @@ Routing war story (kept for honesty):
      whatever freerouting dropped, iterating until 0 unconnected;
   5. KiCad DRC (with --schematic-parity) is the only accepted truth.
 
+## 2026-07-21 23:55 — Routing endgame: freerouting retired, custom A* router
+
+After ~3 hours of freerouting 2.2.4 experiments (two-stage protected routing,
+plane-typed layers, boundary insets, convergence loops — every configuration
+either silently dropped nets from the SES, duplicated wiring on re-import, or
+walled in the QFN power pins), the final architecture drops freerouting
+entirely:
+
+1. `gen_pcb.py` — placement (0 courtyard violations, all clearances
+   hand-checked then DRC-checked), the two QFN corner power pins pre-fanned.
+2. `fanout_post.py` — every GND/VDD pad gets a stub + via to the inner
+   planes **on the empty board** (trivially legal spots; via-in-pad for the
+   battery tabs; Dijkstra fallback threads congested pockets).
+3. `finish_pcb.py` — In1=GND / In2=VDD planes poured; power is now fully
+   connected before a single signal exists.
+4. `repair_router.py` as the primary router: grid A* (0.1 mm, all 4 layers,
+   through-vias, rasterized obstacle grids with exact-clearance "hard" zones
+   near endpoints so QFN escapes stay legal), driven by KiCad DRC's
+   unconnected list, iterating until clean. KiCad DRC JSON is the only
+   accepted ground truth at every step.
+5. Board grew 44×22 → 44×23 mm and the LSE crystal cluster moved next to
+   PC14/PC15 after DRC caught parts under the battery holder body (the BS-08
+   courtyard is now modeled as body + narrow (+) tab, which is what the part
+   actually occupies).
+
+The user asked for an autorouter rather than hand-routing: the A* router is
+exactly that — deterministic, collision-checked, and verified by DRC; no
+trace was drawn by hand.
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.
