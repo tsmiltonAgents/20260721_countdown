@@ -135,6 +135,31 @@ display + button + segment resistors + MCU + crystal. Back: CR2032 holder +
 TC2030 + remaining passives. Keyring hole Ø4 NPTH in a corner tab. Black
 soldermask + ENIG for the bare-board look (color choice = user's at order).
 
+## 2026-07-21 22:20 — PCB placement + routing (the hard part)
+
+Placement: iterated to **0 DRC violations pre-route** (courtyard collisions
+found and fixed by moving parts: battery mouth orientation determined
+*empirically* — pcbnew flip+rotation composition is non-obvious, so pad
+positions were printed from the saved board rather than trusted from theory).
+
+Routing war story (kept for honesty):
+- Freerouting 2.2.4 headless routes the board in seconds, but **its
+  "session completed / N unrouted" self-report is unreliable** — SES files
+  came back with whole nets missing (deterministically the same ones per
+  config) while claiming ~1 unrouted. Configs tried: all-signal layers,
+  inner layers marked (type power), zones exported as planes, with/without
+  my own power fanout vias. Every config left 3–12 airwires after import.
+- Countermeasures now in the flow:
+  1. In1=GND / In2=VDD planes poured **before** DSN export;
+  2. power fanout vias placed programmatically for all spacious parts
+     (collision-checked candidate search; via-in-pad for the battery tabs);
+  3. border keepout strips (0.65 mm) + keyring-hole copper keepout ring so
+     the autorouter can't put copper where the split ring or board edge is;
+  4. **repair_router.py** — a deterministic grid A* (0.25 mm, F/B + vias,
+     rasterized obstacle sets) that reads kicad-cli DRC JSON and routes
+     whatever freerouting dropped, iterating until 0 unconnected;
+  5. KiCad DRC (with --schematic-parity) is the only accepted truth.
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.

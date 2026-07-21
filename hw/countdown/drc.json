@@ -1,0 +1,105 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-07-21T22:28:40",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error"
+    ],
+    "kicad_version": "10.0.4",
+    "schematic_parity": [],
+    "source": "countdown.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [SEG_D] of R4 on F.Cu",
+                    "pos": {
+                        "x": 16.675,
+                        "y": 20.0
+                    },
+                    "uuid": "3d8fc4f9-6a69-4ece-9bd0-84c57f15a14a"
+                },
+                {
+                    "description": "Pad 9 [SEG_D] of U1 on B.Cu",
+                    "pos": {
+                        "x": 37.6,
+                        "y": 3.0625
+                    },
+                    "uuid": "905a599c-5b9a-4ad6-aaaf-d99aa5538904"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 9 [DIG_2] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 22.62,
+                        "y": 7.2
+                    },
+                    "uuid": "74a34ad3-9906-4e24-8e3d-98abfaad1560"
+                },
+                {
+                    "description": "Pad 15 [DIG_2] of U1 on B.Cu",
+                    "pos": {
+                        "x": 40.5975,
+                        "y": 3.5
+                    },
+                    "uuid": "a1a85cde-a23e-48b2-8a2a-e5fe46bad82a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [BOOT0] of R9 on B.Cu",
+                    "pos": {
+                        "x": 2.6,
+                        "y": 7.325
+                    },
+                    "uuid": "249ba2da-3cd6-4838-9aab-028371b84c31"
+                },
+                {
+                    "description": "Pad 27 [BOOT0] of U1 on B.Cu",
+                    "pos": {
+                        "x": 37.6,
+                        "y": 6.9375
+                    },
+                    "uuid": "37e54310-0e4e-42eb-bb5e-a6d9c5b2c44c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": []
+}

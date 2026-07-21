@@ -118,6 +118,112 @@ def rounded_rect(board, w, h, r):
     arc(r, h - r, r, h, 90)            # bottom-left: (r,h) -> (0,h-r)
 
 
+def add_power_fanout(board, netinfo):
+    import math
+    VIA_D, VIA_DRILL, STUB_W = 0.6, 0.3, 0.3
+    placed = []  # (x, y, netname)
+    obstacles = []  # (x, y, halfw, halfh, netname) pad boxes
+    # no-fly bboxes: courtyards of dense/sensitive parts (QFN escape lanes,
+    # display underside mold marks, switch, tag-connect field)
+    nofly = []
+    for r in ("DS1", "U1", "SW1", "J1"):
+        f = board.FindFootprintByReference(r)
+        bb = f.GetBoundingBox(False)
+        box = (pcbnew.ToMM(bb.GetLeft()) - 0.15, pcbnew.ToMM(bb.GetTop()) - 0.15,
+               pcbnew.ToMM(bb.GetRight()) + 0.15, pcbnew.ToMM(bb.GetBottom()) + 0.15)
+        nofly.append(box)
+        print(f"nofly {r}: {[round(v,1) for v in box]}")
+    for fp in board.GetFootprints():
+        for pad in fp.Pads():
+            bb = pad.GetBoundingBox()
+            obstacles.append((pcbnew.ToMM(bb.GetCenter().x),
+                              pcbnew.ToMM(bb.GetCenter().y),
+                              pcbnew.ToMM(bb.GetWidth()) / 2,
+                              pcbnew.ToMM(bb.GetHeight()) / 2,
+                              pad.GetNetname()))
+    hx, hy = PLACE["H1"][0], PLACE["H1"][1]
+
+    def ok_spot(x, y, netname):
+        if not (1.2 <= x <= BOARD_W - 1.2 and 1.2 <= y <= BOARD_H - 1.2):
+            return False
+        if math.hypot(x - hx, y - hy) < 3.4 + 0.35:
+            return False
+        for x1, y1, x2, y2 in nofly:
+            if x1 <= x <= x2 and y1 <= y <= y2:
+                return False
+        for vx, vy, vn in placed:
+            need = 0.65 if vn == netname else 0.85
+            if math.hypot(x - vx, y - vy) < need:
+                return False
+        for ox, oy, hw, hh, on in obstacles:
+            if on == netname:
+                continue
+            dx = max(abs(x - ox) - hw, 0)
+            dy = max(abs(y - oy) - hh, 0)
+            if math.hypot(dx, dy) < 0.3 + 0.2:  # via radius + clearance
+                return False
+        return True
+
+    n_vias = 0
+    for fp in board.GetFootprints():
+        cx = pcbnew.ToMM(fp.GetPosition().x)
+        cy = pcbnew.ToMM(fp.GetPosition().y)
+        if fp.GetReference() == "U1":
+            continue  # freerouting fans out the QFN power pins to the planes
+        for pad in fp.Pads():
+            net = pad.GetNetname()
+            if net not in ("GND", "VDD"):
+                continue
+            if fp.GetReference() == "BT1":
+                # huge mechanical tabs: via-in-pad is standard practice here
+                px = pcbnew.ToMM(pad.GetPosition().x)
+                py = pcbnew.ToMM(pad.GetPosition().y)
+                via = pcbnew.PCB_VIA(board)
+                via.SetPosition(pad.GetPosition())
+                via.SetWidth(pcbnew.FromMM(VIA_D))
+                via.SetDrill(pcbnew.FromMM(VIA_DRILL))
+                via.SetViaType(pcbnew.VIATYPE_THROUGH)
+                via.SetNet(netinfo[net])
+                board.Add(via)
+                placed.append((px, py, net))
+                n_vias += 1
+                continue
+            px = pcbnew.ToMM(pad.GetPosition().x)
+            py = pcbnew.ToMM(pad.GetPosition().y)
+            dx, dy = px - cx, py - cy
+            norm = math.hypot(dx, dy) or 1.0
+            ux, uy = dx / norm, dy / norm
+            cands = []
+            for dist in (1.0, 1.4, 1.9, 2.4):
+                for rot in (0, 35, -35, 70, -70, 110, -110, 180):
+                    a = math.radians(rot)
+                    rx = ux * math.cos(a) - uy * math.sin(a)
+                    ry = ux * math.sin(a) + uy * math.cos(a)
+                    cands.append((px + rx * dist, py + ry * dist))
+            spot = next(((x, y) for x, y in cands if ok_spot(x, y, net)), None)
+            if spot is None:
+                print(f"WARN: no fanout spot for {fp.GetReference()} pad {pad.GetNumber()} ({net})")
+                continue
+            vx, vy = spot
+            via = pcbnew.PCB_VIA(board)
+            via.SetPosition(pcbnew.VECTOR2I_MM(vx, vy))
+            via.SetWidth(pcbnew.FromMM(VIA_D))
+            via.SetDrill(pcbnew.FromMM(VIA_DRILL))
+            via.SetViaType(pcbnew.VIATYPE_THROUGH)
+            via.SetNet(netinfo[net])
+            board.Add(via)
+            tr = pcbnew.PCB_TRACK(board)
+            tr.SetStart(pcbnew.VECTOR2I_MM(px, py))
+            tr.SetEnd(pcbnew.VECTOR2I_MM(vx, vy))
+            tr.SetWidth(pcbnew.FromMM(STUB_W))
+            tr.SetLayer(pad.GetLayer())
+            tr.SetNet(netinfo[net])
+            board.Add(tr)
+            placed.append((vx, vy, net))
+            n_vias += 1
+    print("fanout vias:", n_vias)
+
+
 def main():
     comps, nets = read_netlist(os.path.join(HW, "countdown.net"))
     missing = set(comps) - set(PLACE)
@@ -171,6 +277,65 @@ def main():
     ds = board.GetDesignSettings()
     ds.SetAuxOrigin(pcbnew.VECTOR2I_MM(0, BOARD_H))
 
+    # ---- power planes (In1 = GND, In2 = VDD): added post-route by
+    # finish_pcb.py — freerouting 2.2.4 silently drops nets when it sees
+    # planes/keepouts, so its DSN input must stay plain (empirical)
+    for layer, netname in () if os.environ.get("ZONES") != "1" else (
+            (pcbnew.In1_Cu, "GND"), (pcbnew.In2_Cu, "VDD")):
+        zone = pcbnew.ZONE(board)
+        zone.SetLayer(layer)
+        zone.SetNetCode(netinfo[netname].GetNetCode())
+        zone.Outline().NewOutline()
+        for zx, zy in ((-1, -1), (BOARD_W + 1, -1), (BOARD_W + 1, BOARD_H + 1),
+                       (-1, BOARD_H + 1)):
+            zone.Outline().Append(pcbnew.VECTOR2I_MM(zx, zy))
+        zone.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)
+        zone.SetMinThickness(pcbnew.FromMM(0.2))
+        zone.SetLocalClearance(pcbnew.FromMM(0.25))
+        board.Add(zone)
+
+    # copper keepout ring around the keyring hole (both outer layers) so the
+    # split ring can never scratch into live copper
+    def add_keepout(pts):
+        z = pcbnew.ZONE(board)
+        z.SetIsRuleArea(True)
+        z.SetDoNotAllowTracks(True)
+        z.SetDoNotAllowVias(True)
+        z.SetDoNotAllowZoneFills(False)
+        try:
+            z.SetDoNotAllowPads(False)
+            z.SetDoNotAllowFootprints(False)
+        except AttributeError:
+            pass
+        z.SetLayerSet(pcbnew.LSET.AllCuMask(4))
+        z.Outline().NewOutline()
+        for px, py in pts:
+            z.Outline().Append(pcbnew.VECTOR2I_MM(px, py))
+        board.Add(z)
+
+    # (border keepout strips removed: freerouting mishandles them; edge
+    # violations are fixed deterministically post-import instead)
+
+    ka = pcbnew.ZONE(board)
+    ka.SetIsRuleArea(True)
+    ka.SetDoNotAllowTracks(True)
+    ka.SetDoNotAllowVias(True)
+    ka.SetDoNotAllowZoneFills(True)
+    ka.SetLayerSet(pcbnew.LSET.AllCuMask(4))
+    ka.Outline().NewOutline()
+    hx, hy, kr = PLACE["H1"][0], PLACE["H1"][1], 3.4
+    import math
+    for i in range(16):
+        a = i / 16 * 2 * math.pi
+        ka.Outline().Append(pcbnew.VECTOR2I_MM(hx + kr * math.cos(a),
+                                               hy + kr * math.sin(a)))
+    board.Add(ka)
+
+    if os.environ.get("FANOUT") == "1":
+        add_power_fanout(board, netinfo)
+
+    filler = pcbnew.ZONE_FILLER(board)
+    filler.Fill(board.Zones())
     pcbnew.SaveBoard(pcb_path, board)
     print("saved", pcb_path)
 
@@ -178,8 +343,17 @@ def main():
     board.BuildConnectivity()
     print("footprints:", len(board.GetFootprints()), "nets:", board.GetNetCount())
 
-    ok = pcbnew.ExportSpecctraDSN(board, os.path.join(HW, "countdown.dsn"))
+    dsn_path = os.path.join(HW, "countdown.dsn")
+    ok = pcbnew.ExportSpecctraDSN(board, dsn_path)
     print("DSN export:", ok)
+    # mark inner layers as power planes so freerouting keeps signals off them
+    txt = open(dsn_path).read()
+    if os.environ.get("POWER_LAYERS", "0") == "1":
+        for lname in ("In1.Cu", "In2.Cu"):
+            txt = txt.replace(f'(layer {lname}\n      (type signal)',
+                              f'(layer {lname}\n      (type power)')
+    open(dsn_path, "w").write(txt)
+    print("DSN inner layers set to power:", txt.count("(type power)"))
 
 
 if __name__ == "__main__":

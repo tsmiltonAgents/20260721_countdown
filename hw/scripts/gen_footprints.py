@@ -142,7 +142,7 @@ def keyring_hole():
     s += prop("Footprint", "", 6)
     s += prop("Datasheet", "", 6)
     s += prop("Description", "4mm NPTH keyring hole", 6)
-    s += ('\t(pad "" np_thru_hole circle (at 0 0) (size 6.2 6.2) '
+    s += ('\t(pad "" np_thru_hole circle (at 0 0) (size 6.9 6.9) '
           '(drill 4.0) (layers "F.Mask" "B.Mask"))\n')
     s += circle(0, 0, 2.6, "F.SilkS", 0.2)
     s += circle(0, 0, 2.6, "B.SilkS", 0.2)

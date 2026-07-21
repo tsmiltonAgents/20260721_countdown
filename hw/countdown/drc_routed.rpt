@@ -1,0 +1,45 @@
+** Drc report for countdown.kicad_pcb **
+** Created on 2026-07-21T22:02:17 **
+** Report includes: Errors **
+
+** Found 1 DRC violations **
+[items_not_allowed]: Items not allowed (keepout area)
+    Rule: keepout area; error
+    @(38.8000 mm, 21.0400 mm): NPTH pad of J1
+
+** Found 6 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(23.6750 mm, 20.0000 mm): Pad 1 [SEG_C] of R3 on F.Cu
+    @(37.1000 mm, 3.0025 mm): Pad 8 [SEG_C] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(37.1000 mm, 6.9975 mm): Pad 28 [GND] of U1 on B.Cu
+    @(37.1000 mm, 6.9975 mm): Track [GND] on F.Cu, length 1.4000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(22.6200 mm, 7.2000 mm): Pad 9 [DIG_2] of DS1 on F.Cu
+    @(40.5975 mm, 3.5000 mm): Pad 15 [DIG_2] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(15.0000 mm, 7.2000 mm): Pad 12 [DIG_1] of DS1 on F.Cu
+    @(40.1000 mm, 3.0025 mm): Pad 14 [DIG_1] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
+    @(38.1650 mm, 18.5000 mm): Pad 3 [NRST] of J1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(40.7250 mm, 1.5000 mm): Pad 1 [NRST] of C3 on B.Cu
+    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
