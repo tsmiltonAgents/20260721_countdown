@@ -81,7 +81,7 @@ def display():
     # pin 1 marker (bottom-left signal pad)
     s += circle(-6.35, 6.0, 0.15, "F.SilkS", 0.3, "yes")
     s += text_fab("28.5x10 4-DIG", 0, 0)
-    s += rect(-14.5, -5.6, 14.5, 5.6, "F.CrtYd", 0.05)
+    s += rect(-14.4, -5.6, 14.4, 5.6, "F.CrtYd", 0.05)
     s += ")\n"
     return "XL-SA2401SRWC", s
 
@@ -146,7 +146,7 @@ def keyring_hole():
           '(drill 4.0) (layers "F.Mask" "B.Mask"))\n')
     s += circle(0, 0, 2.6, "F.SilkS", 0.2)
     s += circle(0, 0, 2.6, "B.SilkS", 0.2)
-    s += circle(0, 0, 3.2, "F.CrtYd", 0.05)
+    s += circle(0, 0, 2.8, "F.CrtYd", 0.05)
     s += ")\n"
     return "KeyringHole_4mm", s
 
