@@ -54,6 +54,12 @@ static const uint8_t SEG_PINS[8] = {
 static GPIO_TypeDef *const DIG_PORT[4] = {DIG1_PORT, DIG2_PORT, DIG3_PORT, DIG4_PORT};
 static const uint8_t DIG_PIN[4] = {DIG1_PIN, DIG2_PIN, DIG3_PIN, DIG4_PIN};
 
+/* show_frame() writes the segment byte straight to GPIOA pins 0-7 */
+_Static_assert(SEGA_PIN == 0 && SEGB_PIN == 1 && SEGC_PIN == 2 &&
+               SEGD_PIN == 3 && SEGE_PIN == 4 && SEGF_PIN == 5 &&
+               SEGG_PIN == 6 && SEGDP_PIN == 7,
+               "show_frame assumes identity segment mapping on PA0-7");
+
 static volatile uint32_t g_ms;
 
 void SysTick_Handler(void) { g_ms++; }
@@ -102,25 +108,57 @@ static void rtc_unlock(void)
     RTC->WPR = 0x53;
 }
 
+static void error_blink(void)
+{
+    /* LSE failed: blink segment G of every digit forever (distinct from a
+     * flat battery, which shows nothing at all) */
+    display_pins_active(1);
+    for (;;) {
+        for (int d = 0; d < 4; d++)
+            DIG_PORT[d]->BSRR = 1u << (DIG_PIN[d] + 16);
+        GPIOA->BSRR = 1u << SEGG_PIN;
+        delay_ms(300);
+        GPIOA->BSRR = 1u << (SEGG_PIN + 16);
+        delay_ms(300);
+    }
+}
+
+static int rtc_did_seed;
+
 static void rtc_init_if_needed(void)
 {
     RCC->APB1ENR |= RCC_APB1ENR_PWREN;
+    (void)RCC->APB1ENR; /* errata: settle clock enable before next access */
     PWR->CR |= PWR_CR_DBP;
 
-    if ((RTC->ISR & RTC_ISR_INITS) != 0)
-        return; /* RTC already running (reflash without power loss) */
+    if ((RTC->ISR & RTC_ISR_INITS) != 0) {
+        /* RTC already running (reflash without power loss); still make sure
+         * calendar reads bypass the shadow registers (see rtc_now_epoch) */
+        rtc_unlock();
+        RTC->CR |= RTC_CR_BYPSHAD;
+        RTC->WPR = 0xFF;
+        return;
+    }
+    rtc_did_seed = 1;
 
-    /* start LSE, medium-high drive for the 12.5 pF CL crystal */
-    RCC->CSR = (RCC->CSR & ~RCC_CSR_LSEDRV) | RCC_CSR_LSEDRV_1 | RCC_CSR_LSEON;
-    while (!(RCC->CSR & RCC_CSR_LSERDY))
-        ;
+    /* LSEDRV must be programmed while LSE is off (RM0377), then enable */
+    RCC->CSR = (RCC->CSR & ~RCC_CSR_LSEDRV) | RCC_CSR_LSEDRV_1;
+    RCC->CSR |= RCC_CSR_LSEON;
+    for (uint32_t t = g_ms; !(RCC->CSR & RCC_CSR_LSERDY);)
+        if ((g_ms - t) > 4000u)
+            error_blink(); /* dead crystal: never returns */
     RCC->CSR = (RCC->CSR & ~RCC_CSR_RTCSEL) | RCC_CSR_RTCSEL_LSE | RCC_CSR_RTCEN;
 
     rtc_unlock();
     RTC->ISR |= RTC_ISR_INIT;
     while (!(RTC->ISR & RTC_ISR_INITF))
         ;
-    RTC->PRER = (127u << 16) | 255u; /* 32768 Hz -> 1 Hz */
+    /* calendar reads via BYPSHAD + double-read loop (Stop-mode safe) */
+    RTC->CR |= RTC_CR_BYPSHAD;
+    /* prescalers: reset default 127/255 already gives 1 Hz from 32768 Hz;
+     * written anyway, sync then async per RM0377 double-write rule */
+    RTC->PRER = 255u;
+    RTC->PRER = (127u << 16) | 255u;
 
     /* seed calendar from build-time local epoch */
     int64_t t = (int64_t)BUILD_UNIX_LOCAL;
@@ -140,12 +178,14 @@ static void rtc_init_if_needed(void)
 
 static int64_t rtc_now_epoch(void)
 {
+    /* BYPSHAD=1: read direct calendar registers twice until stable
+     * (RM0377-prescribed pattern; immune to Stop-mode shadow staleness) */
     uint32_t ssr, tr, dr;
     do {
         ssr = RTC->SSR;
         tr = RTC->TR;
         dr = RTC->DR;
-    } while (RTC->SSR != ssr || RTC->TR != tr); /* coherent read */
+    } while (RTC->SSR != ssr || RTC->TR != tr);
     (void)ssr;
     int32_t y = 2000 + (int32_t)unbcd((dr >> 16) & 0xFF);
     uint32_t mo = unbcd((dr >> 8) & 0x1F);
@@ -240,7 +280,9 @@ int main(void)
 {
     /* clocks: stay on MSI 2.097 MHz. Enable GPIO + SYSCFG */
     RCC->IOPENR |= RCC_IOPENR_GPIOAEN | RCC_IOPENR_GPIOBEN | RCC_IOPENR_GPIOCEN;
+    (void)RCC->IOPENR;
     RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
+    (void)RCC->APB2ENR;
 
     SysTick_Config(2097000 / 1000); /* 1 ms tick */
 
@@ -259,6 +301,22 @@ int main(void)
 
     rtc_init_if_needed();
 
+    if (rtc_did_seed) {
+        /* signal "clock (re)seeded from the firmware build timestamp":
+         * all four decimal points flash three times. If you see this after
+         * a battery swap WITHOUT having just flashed fresh firmware, the
+         * countdown is stale - rebuild and reflash. */
+        display_pins_active(1);
+        for (int k = 0; k < 3; k++) {
+            uint8_t dots[4] = {0x80, 0x80, 0x80, 0x80};
+            uint32_t t0 = g_ms;
+            while ((g_ms - t0) < 220u)
+                show_frame(dots);
+            display_pins_active(1); /* keep outputs, clear segments */
+            delay_ms(160);
+        }
+    }
+
     /* greet: show countdown once at power-up */
     display_countdown();
 
@@ -266,5 +324,9 @@ int main(void)
         enter_stop();
         /* woken by button */
         display_countdown();
+        /* if the button is stuck/held (pocket squeeze), wait for release so
+         * we don't re-light the display forever */
+        while (!(BTN_PORT->IDR & (1u << BTN_PIN)))
+            delay_ms(50);
     }
 }

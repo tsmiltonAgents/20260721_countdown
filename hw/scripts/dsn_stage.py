@@ -94,6 +94,38 @@ def inset(text, margin_um10):
     return text[:m.start(2)] + "\n      " + "\n      ".join(out) + "\n    " + text[m.end(2):]
 
 
+def ses_dropnets(text, names):
+    """Remove whole (net NAME ...) blocks (balanced) from a SES file so the
+    importer leaves those nets' board wiring untouched."""
+    out = []
+    i = 0
+    while i < len(text):
+        m = re.search(r'\(net ("[^"]+"|\S+)', text[i:])
+        if not m:
+            out.append(text[i:])
+            break
+        start = i + m.start()
+        name = m.group(1).strip('"')
+        out.append(text[i:start])
+        # scan balanced parens from 'start'
+        depth = 0
+        j = start
+        while j < len(text):
+            if text[j] == '(':
+                depth += 1
+            elif text[j] == ')':
+                depth -= 1
+                if depth == 0:
+                    j += 1
+                    break
+            j += 1
+        block = text[start:j]
+        if name not in names:
+            out.append(block)
+        i = j
+    return "".join(out)
+
+
 def main():
     mode, src, dst = sys.argv[1], sys.argv[2], sys.argv[3]
     text = open(src).read()
@@ -106,6 +138,8 @@ def main():
         text = emptynets(text, set(sys.argv[4].split(",")))
     elif mode == "inset":
         text = inset(text, float(sys.argv[4]))
+    elif mode == "ses_dropnets":
+        text = ses_dropnets(text, set(sys.argv[4].split(",")))
     else:
         raise SystemExit("unknown mode")
     open(dst, "w").write(text)

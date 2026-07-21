@@ -128,7 +128,9 @@ class Obstacles:
         # lane stays open there while shorts/clearance breaks stay blocked
         self.hard = {l: set() for l in LAYERS}
         for l in LAYERS:
-            for bx in self.all_boxes + self.boxes[l]:
+            for bx in self.all_boxes:
+                mark_box(self.hard[l], *bx, 0.36)  # holes: 0.25 rule + width
+            for bx in self.boxes[l]:
                 mark_box(self.hard[l], *bx, 0.26)
             for cx, cy, r in self.all_circles:
                 mark(self.hard[l], cx, cy, r + 0.26)
@@ -262,7 +264,8 @@ def drc_unconnected():
             return None
         pairs.append(((a["pos"]["x"], a["pos"]["y"]),
                       (b["pos"]["x"], b["pos"]["y"]),
-                      lay(a), lay(b)))
+                      lay(a), lay(b),
+                      a["description"] + b["description"]))
     return pairs, data.get("violations", [])
 
 
@@ -382,15 +385,23 @@ def main():
         if not pairs:
             print("repair: no unconnected items remain")
             return
+        prio = _os.environ.get("REPAIR_PRIORITY", "")
+        if prio:
+            pairs.sort(key=lambda pr: 0 if f"[{prio}]" in pr[4] else 1)
         print(f"repair iteration {it}: {len(pairs)} unconnected pairs")
         board = pcbnew.LoadBoard(PCB)
         progress = fix_edge_vias(board)
         done_nets = set()
-        for (ax, ay), (bx, by), la_hint, lb_hint in pairs:
+        for (ax, ay), (bx, by), la_hint, lb_hint, _desc in pairs:
             ncode, nname = netcode_at(board, ax, ay)
             if ncode is None:
                 ncode, nname = netcode_at(board, bx, by)
             if ncode is None or nname in done_nets:
+                continue
+            if nname in ("GND", "VDD"):
+                # power lives on the planes + fanout vias; a disconnected
+                # power pad is a fanout/fill problem, not a routing one
+                print(f"  SKIP power pair {nname} ({ax:.2f},{ay:.2f})")
                 continue
             la = la_hint or item_layer(board, ax, ay, ncode) or pcbnew.B_Cu
             lb = lb_hint or item_layer(board, bx, by, ncode) or pcbnew.B_Cu

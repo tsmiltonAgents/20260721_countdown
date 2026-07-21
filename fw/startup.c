@@ -32,7 +32,7 @@ void SVC_Handler(void) WEAK_DEFAULT;
 void PendSV_Handler(void) WEAK_DEFAULT;
 
 __attribute__((section(".isr_vector"), used))
-const void *g_vectors[48] = {
+const void *const g_vectors[48] = {
     &_estack,
     Reset_Handler,
     NMI_Handler,
@@ -42,7 +42,7 @@ const void *g_vectors[48] = {
     0, 0,
     PendSV_Handler,
     SysTick_Handler,
-    /* IRQ0.. (WWDG, PVD, RTC, FLASH, RCC, EXTI0_1, EXTI2_3, EXTI4_15, ...) */
+    /* IRQ vector numbering per stm32l031xx.h (every slot armed) */
     Default_Handler,      /* 0 WWDG */
     Default_Handler,      /* 1 PVD */
     Default_Handler,      /* 2 RTC */
@@ -51,24 +51,28 @@ const void *g_vectors[48] = {
     Default_Handler,      /* 5 EXTI0_1 */
     EXTI2_3_IRQHandler,   /* 6 EXTI2_3 */
     Default_Handler,      /* 7 EXTI4_15 */
-    0,                    /* 8 reserved */
+    Default_Handler,      /* 8 reserved */
     Default_Handler,      /* 9 DMA1_Channel1 */
     Default_Handler,      /* 10 DMA1_Channel2_3 */
     Default_Handler,      /* 11 DMA1_Channel4_5_6_7 */
     Default_Handler,      /* 12 ADC_COMP */
     Default_Handler,      /* 13 LPTIM1 */
-    0,                    /* 14 reserved */
+    Default_Handler,      /* 14 USART4_5 (n/a on L031) */
     Default_Handler,      /* 15 TIM2 */
-    0,                    /* 16 reserved */
-    Default_Handler,      /* 17 TIM21 */
-    0,                    /* 18 reserved */
-    Default_Handler,      /* 19 TIM22 */
-    Default_Handler,      /* 20 I2C1 */
-    0,                    /* 21 reserved */
-    Default_Handler,      /* 22 SPI1 */
-    0,                    /* 23 reserved */
-    Default_Handler,      /* 24 USART2 */
-    Default_Handler,      /* 25 LPUART1 */
-    0, 0,                 /* 26,27 reserved */
-    0, 0, 0, 0            /* pad */
+    Default_Handler,      /* 16 TIM3 (n/a) */
+    Default_Handler,      /* 17 TIM6 (n/a) */
+    Default_Handler,      /* 18 TIM7 (n/a) */
+    Default_Handler,      /* 19 reserved */
+    Default_Handler,      /* 20 TIM21 */
+    Default_Handler,      /* 21 I2C3 (n/a) */
+    Default_Handler,      /* 22 TIM22 */
+    Default_Handler,      /* 23 I2C1 */
+    Default_Handler,      /* 24 I2C2 (n/a) */
+    Default_Handler,      /* 25 SPI1 */
+    Default_Handler,      /* 26 SPI2 (n/a) */
+    Default_Handler,      /* 27 USART1 (n/a) */
+    Default_Handler,      /* 28 USART2 */
+    Default_Handler,      /* 29 LPUART1 */
+    Default_Handler,      /* 30 reserved */
+    Default_Handler       /* 31 reserved */
 };

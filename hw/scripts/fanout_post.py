@@ -57,12 +57,6 @@ def main():
                             already = True
             if already:
                 continue
-            if fp.GetReference() == "BT1":
-                # huge mechanical tabs -> via-in-pad (standard practice)
-                _via(board, netinfo[net], px, py)
-                placed_vias.append((px, py))
-                added += 1
-                continue
             if net not in obs_cache:
                 obs = Obstacles(board, netinfo[net].GetNetCode())
                 obs.build_grid()
@@ -126,7 +120,25 @@ def main():
             added += 1
 
     pcbnew.SaveBoard(PCB, board)
-    print(f"power fanout: {added} vias, failed: {failed if failed else 'none'}")
+    # snapshot all power wiring so it can be restored after SES imports
+    # (KiCad's ImportSpecctraSES replaces the board's routing wholesale)
+    import json
+    snap = []
+    for t in board.GetTracks():
+        n = t.GetNetname()
+        if n not in ("GND", "VDD"):
+            continue
+        if t.Type() == pcbnew.PCB_VIA_T:
+            snap.append({"kind": "via", "net": n,
+                         "x": mm(t.GetPosition().x), "y": mm(t.GetPosition().y)})
+        else:
+            snap.append({"kind": "trk", "net": n, "layer": int(t.GetLayer()),
+                         "x1": mm(t.GetStart().x), "y1": mm(t.GetStart().y),
+                         "x2": mm(t.GetEnd().x), "y2": mm(t.GetEnd().y),
+                         "w": mm(t.GetWidth())})
+    with open(os.path.join(HW, "power_wiring.json"), "w") as fh:
+        json.dump(snap, fh)
+    print(f"power fanout: {added} vias, failed: {failed if failed else 'none'}; snapshot {len(snap)} items")
 
 
 def _dijkstra_to_via(obs, px, py, layer, placed_vias):
@@ -151,7 +163,7 @@ def _dijkstra_to_via(obs, px, py, layer, placed_vias):
                 path.append((node[0] * GRID, node[1] * GRID))
                 node = came[node]
             return list(reversed(path))
-        if g > 12.0 or len(seen) > 120000:
+        if g > 16.0 or len(seen) > 200000:
             return None
         for dx, dy, dc in DIRS:
             nxt = (node[0] + dx, node[1] + dy)

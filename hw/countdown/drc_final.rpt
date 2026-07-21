@@ -1,296 +1,50 @@
 ** Drc report for countdown.kicad_pcb **
-** Created on 2026-07-21T23:36:58 **
+** Created on 2026-07-22T00:50:29 **
 ** Report includes: Errors **
 
-** Found 64 DRC violations **
-[items_not_allowed]: Items not allowed (keepout area of J1)
-    Rule: keepout area of J1; error
-    @(38.1650 mm, 17.2300 mm): Via [GND] on F.Cu - B.Cu
-[items_not_allowed]: Items not allowed (keepout area of J1)
-    Rule: keepout area of J1; error
-    @(38.1650 mm, 19.7700 mm): Via [VDD] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets LED_A and BOOT0)
-    Local override; error
-    @(17.5000 mm, 7.7000 mm): Via [LED_A] on F.Cu - B.Cu
-    @(14.8000 mm, 8.1000 mm): Track [BOOT0] on B.Cu, length 16.3000 mm
-[shorting_items]: Items shorting two nets (nets LED_A and SEG_A)
-    Local override; error
-    @(15.3250 mm, 2.0000 mm): Via [LED_A] on F.Cu - B.Cu
-    @(14.4000 mm, 2.0000 mm): Track [SEG_A] on In1.Cu, length 14.6000 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1000 mm)
-    Rule: netclass 'Default'; error
-    @(24.3000 mm, 16.8000 mm): Track [SEG_E] on In2.Cu, length 1.7000 mm
-    @(25.1600 mm, 16.3000 mm): Via [LED_G] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0750 mm)
-    Rule: netclass 'Power'; error
-    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0750 mm)
-    Rule: netclass 'Power'; error
-    @(36.6625 mm, 6.0000 mm): Pad 2 [LSE_IN] of U1 on B.Cu
-    @(36.6025 mm, 6.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0750 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5375 mm, 4.0000 mm): Pad 16 [GND] of U1 on B.Cu
-[shorting_items]: Items shorting two nets (nets VDD and SEG_F)
-    Local override; error
-    @(34.4250 mm, 1.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(33.4000 mm, 1.6000 mm): Track [SEG_F] on In1.Cu, length 2.0000 mm
-[shorting_items]: Items shorting two nets (nets VDD and SEG_E)
-    Local override; error
-    @(36.6025 mm, 6.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(26.0000 mm, 16.8000 mm): Track [SEG_E] on In2.Cu, length 15.5563 mm
-[shorting_items]: Items shorting two nets (nets LED_G and SEG_DP)
-    Local override; error
-    @(25.1600 mm, 16.3000 mm): Via [LED_G] on F.Cu - B.Cu
-    @(24.2000 mm, 16.0000 mm): Track [SEG_DP] on In2.Cu, length 0.8000 mm
-[shorting_items]: Items shorting two nets (nets LED_G and SEG_DP)
-    Local override; error
-    @(25.1600 mm, 16.3000 mm): Via [LED_G] on F.Cu - B.Cu
-    @(25.0000 mm, 16.0000 mm): Track [SEG_DP] on In2.Cu, length 7.9196 mm
-[shorting_items]: Items shorting two nets (nets SEG_DP and VDD)
-    Local override; error
-    @(30.8000 mm, 10.4000 mm): Track [SEG_DP] on In2.Cu, length 11.7380 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets SEG_B and SEG_A)
-    Local override; error
-    @(25.6750 mm, 2.0000 mm): Via [SEG_B] on F.Cu - B.Cu
-    @(14.4000 mm, 2.0000 mm): Track [SEG_A] on In1.Cu, length 14.6000 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1000 mm)
-    Rule: netclass 'Power'; error
-    @(36.7000 mm, 4.0000 mm): Track [SEG_A] on B.Cu, length 0.0375 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0049 mm)
-    Rule: netclass 'Power'; error
-    @(36.0000 mm, 4.1000 mm): Track [SEG_A] on B.Cu, length 0.6000 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0049 mm)
-    Rule: netclass 'Power'; error
-    @(36.6000 mm, 4.1000 mm): Track [SEG_A] on B.Cu, length 0.1414 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1483 mm)
-    Rule: netclass 'Power'; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(36.2000 mm, 2.0000 mm): Track [SEG_F] on In1.Cu, length 0.1000 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0066 mm)
-    Rule: netclass 'Power'; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(35.6000 mm, 1.7000 mm): Track [SEG_F] on In1.Cu, length 0.1414 mm
-[shorting_items]: Items shorting two nets (nets GND and SEG_F)
-    Local override; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(35.8000 mm, 1.8000 mm): Track [SEG_F] on In1.Cu, length 0.1414 mm
-[shorting_items]: Items shorting two nets (nets GND and SEG_F)
-    Local override; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(35.7000 mm, 1.8000 mm): Track [SEG_F] on In1.Cu, length 0.1000 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1154 mm)
-    Rule: netclass 'Power'; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(35.4000 mm, 1.6000 mm): Track [SEG_F] on In1.Cu, length 0.1414 mm
-[shorting_items]: Items shorting two nets (nets SEG_F and GND)
-    Local override; error
-    @(35.9000 mm, 1.9000 mm): Track [SEG_F] on In1.Cu, length 0.2000 mm
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0250 mm)
-    Rule: netclass 'Power'; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(35.5000 mm, 1.7000 mm): Track [SEG_F] on In1.Cu, length 0.1000 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0191 mm)
-    Rule: netclass 'Power'; error
-    @(35.9750 mm, 1.5000 mm): Via [GND] on F.Cu - B.Cu
-    @(36.1000 mm, 1.9000 mm): Track [SEG_F] on In1.Cu, length 0.1414 mm
-[shorting_items]: Items shorting two nets (nets SEG_F and SEG_B)
-    Local override; error
-    @(19.1000 mm, 1.6000 mm): Track [SEG_F] on B.Cu, length 14.3000 mm
-    @(25.6750 mm, 2.0000 mm): Via [SEG_B] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets SEG_F and SEG_A)
-    Local override; error
-    @(17.6750 mm, 2.0000 mm): Via [SEG_F] on F.Cu - B.Cu
-    @(14.4000 mm, 2.0000 mm): Track [SEG_A] on In1.Cu, length 14.6000 mm
-[shorting_items]: Items shorting two nets (nets DIG_1 and BOOT0)
-    Local override; error
-    @(15.0000 mm, 7.7000 mm): Via [DIG_1] on F.Cu - B.Cu
-    @(14.8000 mm, 8.1000 mm): Track [BOOT0] on B.Cu, length 16.3000 mm
-[shorting_items]: Items shorting two nets (nets DIG_1 and VDD)
-    Local override; error
-    @(36.5000 mm, 4.1000 mm): Track [DIG_1] on F.Cu, length 0.6000 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets DIG_1 and VDD)
-    Local override; error
-    @(36.0000 mm, 4.6000 mm): Track [DIG_1] on F.Cu, length 0.7071 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0419 mm)
-    Rule: netclass 'Default'; error
-    @(19.3250 mm, 2.0000 mm): Via [LED_F] on F.Cu - B.Cu
-    @(18.7000 mm, 2.0000 mm): Track [SEG_F] on B.Cu, length 0.5657 mm
-[shorting_items]: Items shorting two nets (nets LED_F and SEG_A)
-    Local override; error
-    @(19.3250 mm, 2.0000 mm): Via [LED_F] on F.Cu - B.Cu
-    @(14.4000 mm, 2.0000 mm): Track [SEG_A] on In1.Cu, length 14.6000 mm
-[shorting_items]: Items shorting two nets (nets LED_F and BOOT0)
-    Local override; error
-    @(20.1000 mm, 7.7000 mm): Via [LED_F] on F.Cu - B.Cu
-    @(14.8000 mm, 8.1000 mm): Track [BOOT0] on B.Cu, length 16.3000 mm
-[shorting_items]: Items shorting two nets (nets DIG_2 and VDD)
-    Local override; error
-    @(36.0000 mm, 5.2000 mm): Track [DIG_2] on In1.Cu, length 1.6971 mm
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[shorting_items]: Items shorting two nets (nets DIG_2 and BOOT0)
-    Local override; error
-    @(22.6200 mm, 7.7000 mm): Via [DIG_2] on F.Cu - B.Cu
-    @(14.8000 mm, 8.1000 mm): Track [BOOT0] on B.Cu, length 16.3000 mm
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1014 mm)
-    Rule: netclass 'Power'; error
-    @(40.4000 mm, 5.1000 mm): Track [DIG_3] on B.Cu, length 0.1414 mm
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1000 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5000 mm, 5.0000 mm): Track [DIG_3] on B.Cu, length 0.0375 mm
-[shorting_items]: Items shorting two nets (nets DIG_3 and BOOT0)
-    Local override; error
-    @(25.1600 mm, 7.7000 mm): Via [DIG_3] on F.Cu - B.Cu
-    @(14.8000 mm, 8.1000 mm): Track [BOOT0] on B.Cu, length 16.3000 mm
-[shorting_items]: Items shorting two nets (nets LED_C and SEG_D)
-    Local override; error
-    @(22.6200 mm, 16.3000 mm): Via [LED_C] on F.Cu - B.Cu
-    @(21.9000 mm, 17.0000 mm): Track [SEG_D] on In2.Cu, length 8.0610 mm
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.0950 mm)
-    Rule: netclass 'Default'; error
-    @(20.7000 mm, 20.4000 mm): Track [SEG_E] on In2.Cu, length 5.0912 mm
-    @(21.8000 mm, 20.0000 mm): Via [LED_DP] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1000 mm)
-    Rule: netclass 'Default'; error
-    @(18.3000 mm, 20.0000 mm): Via [LED_D] on F.Cu - B.Cu
-    @(15.5000 mm, 20.5000 mm): Track [SEG_E] on In2.Cu, length 5.0000 mm
-[shorting_items]: Items shorting two nets (nets SEG_E and LED_E)
-    Local override; error
-    @(13.9000 mm, 20.0000 mm): Track [SEG_E] on In2.Cu, length 1.1000 mm
-    @(14.8250 mm, 20.0000 mm): Via [LED_E] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1014 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5000 mm, 4.0000 mm): Track [GND] on B.Cu, length 0.1414 mm
-[shorting_items]: Items shorting two nets (nets  and GND)
-    Local override; error
-    @(32.7800 mm, 7.7000 mm): Pad [<no net>] of DS1 on F.Cu
-    @(32.6000 mm, 6.6250 mm): Via [GND] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1000 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5375 mm, 4.0000 mm): Track [GND] on B.Cu, length 0.0375 mm
-[shorting_items]: Items shorting two nets (nets SEG_D and GND)
-    Local override; error
-    @(27.7000 mm, 11.3000 mm): Track [SEG_D] on In2.Cu, length 9.6167 mm
-    @(32.6000 mm, 6.6250 mm): Via [GND] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1476 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-    @(40.8000 mm, 3.3000 mm): Via [DIG_2] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0750 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-    @(40.5375 mm, 4.5000 mm): Pad 17 [VDD] of U1 on B.Cu
-[shorting_items]: Items shorting two nets (nets VDD and GND)
-    Local override; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.1476 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-    @(40.8000 mm, 3.3000 mm): Via [DIG_2] on F.Cu - B.Cu
-[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0750 mm)
-    Rule: netclass 'Power'; error
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-    @(40.5375 mm, 4.0000 mm): Track [GND] on F.Cu, length 0.9375 mm
-[shorting_items]: Items shorting two nets (nets GND and )
-    Local override; error
-    @(32.6000 mm, 6.6250 mm): Track [GND] on F.Cu, length 0.9647 mm
-    @(32.7800 mm, 7.7000 mm): Pad [<no net>] of DS1 on F.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.0000 mm)
-    Rule: board setup constraints hole; error
-    @(32.7800 mm, 7.7000 mm): Pad [<no net>] of DS1 on F.Cu
-    @(32.6000 mm, 6.6250 mm): Via [GND] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(36.6625 mm, 6.0000 mm): Pad 2 [LSE_IN] of U1 on B.Cu
-    @(36.6025 mm, 6.5000 mm): Via [VDD] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(36.6625 mm, 4.0000 mm): Pad 6 [SEG_A] of U1 on B.Cu
-    @(36.6625 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(40.5975 mm, 3.5000 mm): Pad 15 [DIG_2] of U1 on B.Cu
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(40.5375 mm, 4.0000 mm): Pad 16 [GND] of U1 on B.Cu
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(40.5375 mm, 4.5000 mm): Pad 17 [VDD] of U1 on B.Cu
-    @(40.5375 mm, 4.0000 mm): Via [GND] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2250 mm)
-    Rule: board setup constraints hole; error
-    @(40.5375 mm, 5.0000 mm): Pad 18 [DIG_3] of U1 on B.Cu
-    @(40.5375 mm, 4.5000 mm): Via [VDD] on F.Cu - B.Cu
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(32.6000 mm, 7.4000 mm): Footprint C8
-    @(34.4000 mm, 5.6000 mm): Footprint Y1
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(32.6000 mm, 3.4000 mm): Footprint C7
-    @(34.4000 mm, 5.6000 mm): Footprint Y1
-[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
-    Rule: board setup solder mask min width; error
-    @(32.6000 mm, 6.6250 mm): Via [GND] on F.Cu - B.Cu
-    @(32.7800 mm, 7.7000 mm): Pad [<no net>] of DS1 on F.Cu
-[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
-    Rule: board setup solder mask min width; error
-    @(32.6000 mm, 6.6250 mm): Track [GND] on F.Cu, length 0.9647 mm
-    @(32.7800 mm, 7.7000 mm): Pad [<no net>] of DS1 on F.Cu
+** Found 0 DRC violations **
 
-** Found 8 unconnected pads **
+** Found 10 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(27.3250 mm, 2.0000 mm): Pad 2 [LED_B] of R2 on F.Cu
-    @(27.7000 mm, 7.7000 mm): Pad 7 [LED_B] of DS1 on F.Cu
+    @(17.6750 mm, 2.0000 mm): Track [SEG_F] on B.Cu, length 0.0250 mm
+    @(17.6750 mm, 2.0000 mm): Pad 1 [SEG_F] of R6 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(39.1000 mm, 6.9375 mm): Pad 24 [BTN] of U1 on B.Cu
-    @(37.1000 mm, 6.9975 mm): Track [BTN] on F.Cu, length 2.5025 mm
+    @(25.1600 mm, 7.7000 mm): Track [DIG_3] on B.Cu, length 0.0400 mm
+    @(25.1600 mm, 7.7000 mm): Pad 8 [DIG_3] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(37.1000 mm, 6.9975 mm): Pad 28 [GND] of U1 on B.Cu
-    @(41.2750 mm, 8.4000 mm): Track [GND] on F.Cu, length 0.8721 mm
+    @(22.6200 mm, 7.7000 mm): Track [DIG_2] on B.Cu, length 0.0200 mm
+    @(22.6200 mm, 7.7000 mm): Pad 9 [DIG_2] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
+    @(23.6750 mm, 20.0000 mm): Track [SEG_C] on B.Cu, length 1.1250 mm
     @(23.6750 mm, 20.0000 mm): Pad 1 [SEG_C] of R3 on F.Cu
-    @(37.1000 mm, 3.0025 mm): Pad 8 [SEG_C] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(13.1750 mm, 20.0000 mm): Pad 1 [SEG_E] of R5 on F.Cu
+    @(38.1000 mm, 3.0625 mm): Pad 10 [SEG_E] of U1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(25.6750 mm, 2.0000 mm): Track [SEG_B] on B.Cu, length 2.1250 mm
+    @(25.6750 mm, 2.0000 mm): Pad 1 [SEG_B] of R2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(13.6750 mm, 2.0000 mm): Pad 1 [SEG_A] of R1 on F.Cu
+    @(13.6750 mm, 2.0000 mm): Track [SEG_A] on B.Cu, length 0.0250 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(33.0000 mm, 2.6750 mm): Pad 1 [LSE_IN] of C7 on B.Cu
+    @(34.4000 mm, 4.3500 mm): Pad 1 [LSE_IN] of Y1 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(34.4000 mm, 4.3500 mm): Pad 1 [LSE_IN] of Y1 on B.Cu
+    @(36.6625 mm, 6.0000 mm): Pad 2 [LSE_IN] of U1 on B.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(35.5000 mm, 17.8000 mm): Track [NRST] on B.Cu, length 0.4243 mm
     @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(34.4000 mm, 4.3500 mm): Track [LSE_IN] on B.Cu, length 0.0500 mm
-    @(36.6625 mm, 6.0000 mm): Pad 2 [LSE_IN] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(39.4350 mm, 19.7700 mm): Pad 2 [SWDIO] of J1 on B.Cu
-    @(40.5975 mm, 6.5000 mm): Pad 21 [SWDIO] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(39.4350 mm, 18.5000 mm): Pad 4 [SWCLK] of J1 on B.Cu
-    @(40.1000 mm, 6.9975 mm): Pad 22 [SWCLK] of U1 on B.Cu
 
 ** Found 0 Footprint errors **
 

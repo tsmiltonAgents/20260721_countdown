@@ -53,10 +53,10 @@ PLACE = {
     "BT1": (19.4, 11.5, 0, "B"),  # (+) tab right, mouth toward hole (empirical)
     "U1":  (38.6, 5.0, 0, "B"),
     "Y1":  (34.4, 5.6, 90, "B"),
-    "C7":  (32.4, 1.9, 90, "B"),   # LSE_IN load
+    "C7":  (33.0, 1.9, 90, "B"),   # LSE_IN load
     "C8":  (34.9, 2.0, 90, "B"),  # LSE_OUT load
     "C1":  (41.5, 8.8, 90, "B"),   # 100n VDD (near pin 17 side)
-    "C2":  (37.1, 1.4, 0, "B"),    # 100n VDDA (near pin 5)
+    "C2":  (35.8, 9.6, 0, "B"),   # clear of the QFN south escape field    # 100n VDDA (near pin 5)
     "C3":  (33.6, 18.6, 0, "B"),    # 100n NRST
     "C4":  (8.0, 1.6, 0, "B"),   # 1u VDD
     "C5":  (4.6, 2.0, 0, "B"),     # 10u bulk
@@ -142,7 +142,7 @@ def add_u1_power_vias(board, netinfo):
         tr.SetStart(pcbnew.VECTOR2I_MM(px, py))
         tr.SetEnd(pcbnew.VECTOR2I_MM(vx, vy))
         tr.SetWidth(pcbnew.FromMM(0.25))
-        tr.SetLayer(pad.GetLayer())
+        tr.SetLayer(u1.GetLayer())  # SMD pad lives on the footprint's side
         tr.SetNet(netinfo[net])
         board.Add(tr)
     print("U1 power vias:", len(U1_POWER_VIAS))

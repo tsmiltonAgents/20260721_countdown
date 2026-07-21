@@ -8,13 +8,13 @@ SIZE = arm-none-eabi-size
 
 # Local-time epoch at build. date +%s is UTC-epoch; add the current UTC offset
 # so the RTC (which we keep in local time) is seeded correctly.
-BUILD_UNIX_LOCAL := $(shell python3 -c "import time; t=time.time(); print(int(t - time.timezone + (3600 if time.localtime().tm_isdst else 0)))")
+BUILD_UNIX_LOCAL := $(shell python3 -c "import time; print(int(time.time()) + time.localtime().tm_gmtoff)")
 
 CFLAGS = -mcpu=cortex-m0plus -mthumb -Os -g -Wall -Wextra -std=c11 -ffreestanding \
          -ffunction-sections -fdata-sections -Ivendor \
          -DSTM32L031xx -DBUILD_UNIX_LOCAL=$(BUILD_UNIX_LOCAL)
 LDFLAGS = -mcpu=cortex-m0plus -mthumb -nostartfiles -Wl,--gc-sections \
-          -T stm32l031.ld -Wl,-Map=countdown.map -Wl,--no-warn-rwx-segments -nostdlib -lgcc
+          -T stm32l031.ld -Wl,-Map=countdown.map -nostdlib -lgcc
 
 SRCS = main.c startup.c
 
@@ -23,7 +23,9 @@ countdown.elf: $(SRCS) config.h stm32l031.ld Makefile
 	$(OBJCOPY) -O binary $@ countdown.bin
 	$(SIZE) $@
 
-flash: countdown.elf
+flash:
+	rm -f countdown.elf
+	$(MAKE) countdown.elf
 	pyocd flash -t stm32l031g6ux countdown.elf
 
 clean:

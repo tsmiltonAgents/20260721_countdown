@@ -121,8 +121,11 @@ for ref, val, lcsc, x in (("C1", "100nF", "C14663", 60),
 sch.place("Device:C", "C3", "100nF", (60, 70), {"1": "NRST", "2": "GND"},
           footprint=FP_C, lcsc="C14663")
 
+# Diagonal wiring (pins 1 and 4 only): the TS-1187A internally commons its
+# pads in pairs; a diagonal always spans the switch contact regardless of
+# whether the pairing runs along the edges or the sides. Orientation-proof.
 sch.place("countdown:SW_TACT4", "SW1", "TS-1187A-B-A-B", (160, 150), {
-    "1": "BTN", "2": "BTN", "3": "GND", "4": "GND",
+    "1": "BTN", "4": "GND",
 }, footprint="countdown:SW_TS-1187A", lcsc="C318884")
 
 sch.place("countdown:TC2030", "J1", "TC2030-SWD", (45, 150), {
