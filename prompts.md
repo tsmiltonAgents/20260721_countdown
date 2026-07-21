@@ -8,4 +8,11 @@ All prompts given during this project, verbatim, with timestamps.
 
 ## Agent prompts (Claude → subagents / tools)
 
-Recorded below as the project progresses.
+### 2026-07-21 21:15 — Four parallel research agents launched
+
+1. **MCU research**: "Find the best microcontroller for an ultra-low-power coin-cell (CR2032, 2.0–3.0V) countdown keyring... runs 1.8–3.6V direct, RTC on external 32.768 kHz crystal, ~1 µA deep sleep keeping time, ≥13 GPIO + SWD, LQFP32/TSSOP20/QFN28-32, IN STOCK at JLCPCB parts library, Basic/Extended status... candidates STM32L031/G031/L011, PY32F002B, CH32V003 (verify it lacks LSE)... report LCSC C-numbers, stock, price, sleep current, gotchas (BOOT0, NRST, VDDA)."
+2. **Display research**: "Find a 4-digit 7-segment LED display, as SMALL as practical (digit 0.2–0.4 inch, under ~42x15mm), JLC-assemblable, SMD preferred... RED (Vf ~1.8–2.0V) REQUIRED for 2.0–3.0V coin cell, disqualify blue/white/green... report full pin map, mechanical dims, LCSC number, stock, common anode/cathode... backups: 2-digit or smallest THT 4-digit."
+3. **Support parts**: "CR2032 SMD holder, 32.768 kHz 3215 crystal (report CL and load caps), small SMD tactile switch, 0402/0603 Basic passives (100nF/1uF/10uF, 150–470R, 10k), optional Schottky + P-FET, Tag-Connect TC2030-NL footprint geometry + JLC-stocked 1.27mm SWD header alternative... LCSC numbers, Basic/Extended, stock."
+4. **JLC fab/assembly rules**: "4-layer capabilities (track/space, via, stackup, colors), Economic vs Standard assembly (THT? both sides? fees), exact BOM/CPL file formats and column names, KiCad→JLC rotation corrections, gerber layer requirements, min board size for ~40x20mm board."
+
+(Full verbatim agent prompts preserved in the session; condensed here for readability.)
