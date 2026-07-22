@@ -56,12 +56,12 @@ PLACE = {
     "C7":  (33.0, 1.9, 90, "B"),   # LSE_IN load
     "C8":  (43.3, 9.5, 0, "B"),  # LSE_OUT load
     "C1":  (39.3, 1.5, 0, "B"),   # 100n VDD (near pin 17 side)
-    "C2":  (35.4, 10.1, 0, "B"),   # VDDA cap, west of QFN, clear of escapes    # 100n VDDA (near pin 5)
-    "C3":  (34.9, 18.3, 0, "B"),    # 100n NRST
-    "C4":  (8.3, 1.8, 0, "B"),   # 1u VDD
-    "C5":  (4.6, 2.3, 0, "B"),     # 10u bulk
-    "C6":  (4.4, 20.9, 0, "B"),    # 10u bulk
-    "R9":  (2.5, 7.0, 90, "B"),    # BOOT0 10k
+    "C2":  (35.4, 9.8, 0, "B"),   # VDDA cap, west of QFN, clear of escapes    # 100n VDDA (near pin 5)
+    "C3":  (34.6, 18.6, 0, "B"),    # 100n NRST
+    "C4":  (8.0, 1.6, 0, "B"),   # 1u VDD
+    "C5":  (4.6, 2.0, 0, "B"),     # 10u bulk
+    "C6":  (4.6, 21.0, 0, "B"),    # 10u bulk
+    "R9":  (2.6, 7.0, 90, "B"),    # BOOT0 10k
     "J1":  (40.0, 18.5, 90, "B"),  # TC2030
 }
 

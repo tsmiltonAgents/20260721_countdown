@@ -28,7 +28,7 @@ TRACK_W = 0.2
 CLEAR = 0.27        # centreline to other-net copper edge (0.1+0.15 margin)
 VIA_D, VIA_DRILL = 0.6, 0.3
 VIA_CLEAR = 0.48    # via centre to other-net copper edge margin
-BOARD_W, BOARD_H = 44.0, 23.0
+BOARD_W, BOARD_H = 46.0, 23.0
 EDGE = 0.75         # centreline to board edge
 LAYERS = (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu)
 
@@ -171,7 +171,7 @@ class Obstacles:
     def via_ok(self, x, y):
         if not (EDGE <= x <= BOARD_W - EDGE and EDGE <= y <= BOARD_H - EDGE):
             return False
-        if self.netname != "GND" and 36.8 <= x <= 40.4 and 3.2 <= y <= 6.8:
+        if self.netname != "GND" and 37.8 <= x <= 41.4 and 3.8 <= y <= 7.4:
             return False  # QFN die pad is VSS-bonded: only GND vias beneath
         for vx, vy in self.any_vias:
             if (x - vx) ** 2 + (y - vy) ** 2 < 0.72 ** 2:

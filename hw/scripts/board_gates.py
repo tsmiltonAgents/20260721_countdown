@@ -14,7 +14,7 @@ fails = []
 vias = [(t, pcbnew.ToMM(t.GetPosition().x), pcbnew.ToMM(t.GetPosition().y))
         for t in b.GetTracks() if t.Type() == pcbnew.PCB_VIA_T]
 for t, x, y in vias:
-    if t.GetNetname() != "GND" and 36.8 <= x <= 40.4 and 3.2 <= y <= 6.8:
+    if t.GetNetname() != "GND" and 37.8 <= x <= 41.4 and 3.8 <= y <= 7.4:
         fails.append(f"non-GND via {t.GetNetname()} under QFN at ({x:.2f},{y:.2f})")
 for i in range(len(vias)):
     for j in range(i + 1, len(vias)):

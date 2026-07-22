@@ -1,46 +1,10 @@
 ** Drc report for countdown.kicad_pcb **
-** Created on 2026-07-22T03:13:48 **
+** Created on 2026-07-22T04:29:19 **
 ** Report includes: Errors **
 
 ** Found 0 DRC violations **
 
-** Found 9 unconnected pads **
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(37.1000 mm, 6.9975 mm): Track [GND] on B.Cu, length 2.5025 mm
-    @(39.6001 mm, 3.9999 mm): Track [GND] on B.Cu, length 1.4144 mm
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(23.6750 mm, 20.0000 mm): Track [SEG_C] on B.Cu, length 0.0250 mm
-    @(23.6750 mm, 20.0000 mm): Pad 1 [SEG_C] of R3 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(25.1600 mm, 7.7000 mm): Track [DIG_3] on B.Cu, length 1.2400 mm
-    @(25.1600 mm, 7.7000 mm): Pad 8 [DIG_3] of DS1 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(27.1750 mm, 20.0000 mm): Track [SEG_G] on B.Cu, length 0.0250 mm
-    @(27.1750 mm, 20.0000 mm): Pad 1 [SEG_G] of R7 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(36.6025 mm, 6.5000 mm): Pad 1 [VDD] of U1 on B.Cu
-    @(36.6625 mm, 4.5000 mm): Pad 5 [VDD] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(36.6625 mm, 4.5000 mm): Pad 5 [VDD] of U1 on B.Cu
-    @(40.5375 mm, 4.5000 mm): Pad 17 [VDD] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(34.4000 mm, 6.8500 mm): Pad 2 [LSE_OUT] of Y1 on B.Cu
-    @(36.6625 mm, 5.5000 mm): Pad 3 [LSE_OUT] of U1 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(36.6625 mm, 5.5000 mm): Pad 3 [LSE_OUT] of U1 on B.Cu
-    @(34.9000 mm, 2.7750 mm): Pad 1 [LSE_OUT] of C8 on B.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
-    @(38.1650 mm, 18.5000 mm): Pad 3 [NRST] of J1 on B.Cu
+** Found 0 unconnected pads **
 
 ** Found 0 Footprint errors **
 

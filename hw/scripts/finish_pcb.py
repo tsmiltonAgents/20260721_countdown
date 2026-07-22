@@ -17,7 +17,7 @@ def add_zone(board, layer, netname):
     zone.SetLayer(layer)
     zone.SetNetCode(net.GetNetCode())
     zone.Outline().NewOutline()
-    for x, y in ((-1, -1), (45, -1), (45, 24), (-1, 24)):
+    for x, y in ((-1, -1), (47, -1), (47, 24), (-1, 24)):
         zone.Outline().Append(pcbnew.VECTOR2I_MM(x, y))
     zone.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)
     zone.SetMinThickness(pcbnew.FromMM(0.2))
