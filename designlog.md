@@ -236,6 +236,38 @@ immediately. The final flow loops the fully-scripted
 generate→fanout→route→repair pipeline until a round closes at exactly
 0 DRC violations / 0 unconnected — the accept-only-perfect criterion.
 
+## 2026-07-22 06:30 — CONVERGED: 0/0/0/0 board, fab files cut
+
+The winning combination, after a full night of autorouting research:
+1. **Placement is destiny.** U1 rotated 90° so every package face points at
+   its loads (west face = display segment/digit drivers, south = LSE crystal
+   cluster directly below, north = decouplers, east = SWD/BOOT0 with the
+   Tag-Connect below-right). Board grew 44→46 mm for the east field. The
+   VDDA capacitor C2 — which had silently blocked the QFN escape field for
+   hours in earlier layouts — lives far from any escape lane.
+2. **Freerouting on a pristine single-stage DSN** (54 nets, its wiring
+   protected pre-vias only) — completes 53/54 in 5 s on this placement.
+3. **Placement-seed search**: FR is deterministic per input, so don't-care
+   passives get ±0.1–0.3 mm pseudo-random nudges per seed until a seed's
+   single leftover lands somewhere repairable (seed 32: one VDD gap in the
+   open north band).
+4. **Deterministic A\* repair** closed the last pair (23 nodes).
+5. Planes poured last; **final: 0 DRC violations, 0 unconnected, 0 schematic
+   parity issues, 0 custom-gate failures** (no non-GND vias under the
+   VSS-bonded QFN die pad; all via pairs ≥0.72 mm).
+
+Verified with eyes on renders (docs/renders/): keyring wear-ring gold and
+grounded, battery mouth toward the ring, polarity mark on real silk, silk
+art clear of pads, EP pad mask-opened with no paste, TC2030 field with its
+three NPTH locating holes. Drill files split PTH/NPTH so the Tag-Connect
+holes stay unplated (a merged file would have plated them and shrunk them
+below the locating-pin diameter — caught in fab review).
+
+Fab outputs (fab/): gerbers.zip (14 files, 4 copper layers, split drills),
+bom.csv (11 lines, 3 Extended parts), cpl.csv (22 placements, U1 carrying
+the +270° QFN tape correction folded through the bottom-side formula).
+Firmware: 3,232 bytes, zero warnings, const vector table, all review fixes.
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.

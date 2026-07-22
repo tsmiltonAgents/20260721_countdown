@@ -1,15 +1,15 @@
 Archive member included to satisfy reference by file (symbol)
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o (__aeabi_uidiv)
+                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o (__aeabi_uidiv)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o (__aeabi_idiv)
+                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o (__aeabi_idiv)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                               /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
-                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o (__aeabi_ldivmod)
+                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o (__aeabi_ldivmod)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
-                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o (__aeabi_lmul)
+                              /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o (__aeabi_lmul)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(bpabi.o)
                               /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
@@ -24,12 +24,12 @@ Merging object attributes
 
 Discarded input sections
 
- .text          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .data          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .bss           0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .text          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
- .data          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
- .bss           0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .text          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .data          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .bss           0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .text          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
+ .data          0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
+ .bss           0x00000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .data          0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .bss           0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .data          0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
@@ -59,41 +59,41 @@ RAM              0x20000000         0x00002000         xrw
 
 Linker script and memory map
 
-LOAD /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
-LOAD /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+LOAD /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+LOAD /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
 LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a
                 0x20002000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
 
 .isr_vector     0x08000000       0xc0
  *(.isr_vector)
- .isr_vector    0x08000000       0xc0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .isr_vector    0x08000000       0xc0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
                 0x08000000                g_vectors
 
 .text           0x080000c0      0xbd8
  *(.text*)
  .text.delay_ms
-                0x080000c0       0x18 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x080000c0       0x18 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.gpio_mode
-                0x080000d8       0x14 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x080000d8       0x14 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.display_pins_active
-                0x080000ec       0x68 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x080000ec       0x68 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.show_frame
-                0x08000154       0x58 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000154       0x58 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.render_value
-                0x080001ac       0x64 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x080001ac       0x64 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.display_countdown
-                0x08000210      0x1e0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000210      0x1e0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .text.SysTick_Handler
-                0x080003f0       0x10 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x080003f0       0x10 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                 0x080003f0                SysTick_Handler
  .text.EXTI2_3_IRQHandler
-                0x08000400        0xc /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000400        0xc /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                 0x08000400                EXTI2_3_IRQHandler
  .text.startup.main
-                0x0800040c      0x24c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x0800040c      0x24c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                 0x0800040c                main
  .text.Default_Handler
-                0x08000658        0x2 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x08000658        0x2 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
                 0x08000658                HardFault_Handler
                 0x08000658                PendSV_Handler
                 0x08000658                NMI_Handler
@@ -101,7 +101,7 @@ LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/
                 0x08000658                SVC_Handler
  *fill*         0x0800065a        0x2 
  .text.Reset_Handler
-                0x0800065c       0x3c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x0800065c       0x3c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
                 0x0800065c                Reset_Handler
  .text          0x08000698      0x114 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
                 0x08000698                __udivsi3
@@ -129,12 +129,12 @@ LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/
                 0x08000c34                __clzsi2
  *(.rodata*)
  .rodata.DIG_PIN
-                0x08000c70        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000c70        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .rodata.DIG_PORT
-                0x08000c74       0x10 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000c74       0x10 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .rodata.SEG_PINS
-                0x08000c84        0x8 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .rodata.FONT   0x08000c8c        0xa /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x08000c84        0x8 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .rodata.FONT   0x08000c8c        0xa /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                 0x08000c98                        . = ALIGN (0x4)
  *fill*         0x08000c96        0x2 
                 0x08000ca0                        _sidata = LOADADDR (.data)
@@ -152,10 +152,10 @@ LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/
  .v4_bx         0x08000c98        0x0 linker stubs
 
 .iplt           0x08000c98        0x0
- .iplt          0x08000c98        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+ .iplt          0x08000c98        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
 
 .rel.dyn        0x08000c98        0x0
- .rel.iplt      0x08000c98        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+ .rel.iplt      0x08000c98        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
 
 .ARM.exidx      0x08000c98        0x8
  .ARM.exidx     0x08000c98        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
@@ -168,15 +168,15 @@ LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/
                 0x20000000                        _edata = .
 
 .igot.plt       0x20000000        0x0 load address 0x08000ca0
- .igot.plt      0x20000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+ .igot.plt      0x20000000        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
 
 .bss            0x20000000        0x8 load address 0x08000ca0
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sbss = .
  *(.bss*)
  .bss.rtc_did_seed
-                0x20000000        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .bss.g_ms      0x20000004        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x20000000        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .bss.g_ms      0x20000004        0x4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  *(COMMON)
                 0x20000008                        . = ALIGN (0x4)
                 0x20000008                        _ebss = .
@@ -184,8 +184,8 @@ OUTPUT(countdown.elf elf32-littlearm)
 LOAD linker stubs
 
 .debug_info     0x00000000     0x1fa4
- .debug_info    0x00000000     0x1333 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .debug_info    0x00001333      0x156 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .debug_info    0x00000000     0x1333 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .debug_info    0x00001333      0x156 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_info    0x00001489       0x3e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_info    0x000014c7       0x3e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .debug_info    0x00001505       0x3c /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -197,8 +197,8 @@ LOAD linker stubs
  .debug_info    0x00001f73       0x31 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
 
 .debug_abbrev   0x00000000      0xa1f
- .debug_abbrev  0x00000000      0x466 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .debug_abbrev  0x00000466      0x113 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .debug_abbrev  0x00000000      0x466 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .debug_abbrev  0x00000466      0x113 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_abbrev  0x00000579       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_abbrev  0x000005a1       0x28 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .debug_abbrev  0x000005c9       0x26 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -212,9 +212,9 @@ LOAD linker stubs
 .debug_loclists
                 0x00000000      0xc40
  .debug_loclists
-                0x00000000      0x5a4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x00000000      0x5a4 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .debug_loclists
-                0x000005a4       0x47 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x000005a4       0x47 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_loclists
                 0x000005eb      0x11c /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
  .debug_loclists
@@ -224,9 +224,9 @@ LOAD linker stubs
 
 .debug_aranges  0x00000000      0x1a8
  .debug_aranges
-                0x00000000       0x60 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x00000000       0x60 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .debug_aranges
-                0x00000060       0x28 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x00000060       0x28 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_aranges
                 0x00000088       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_aranges
@@ -249,17 +249,17 @@ LOAD linker stubs
 .debug_rnglists
                 0x00000000      0x1f5
  .debug_rnglists
-                0x00000000      0x19b /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x00000000      0x19b /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .debug_rnglists
-                0x0000019b       0x19 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x0000019b       0x19 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_rnglists
                 0x000001b4       0x22 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
  .debug_rnglists
                 0x000001d6       0x1f /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
 
 .debug_line     0x00000000     0x1237
- .debug_line    0x00000000      0xb47 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .debug_line    0x00000b47       0xee /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .debug_line    0x00000000      0xb47 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .debug_line    0x00000b47       0xee /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_line    0x00000c35       0x56 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_line    0x00000c8b       0x5d /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .debug_line    0x00000ce8       0x4a /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
@@ -271,9 +271,9 @@ LOAD linker stubs
  .debug_line    0x000011d9       0x5e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
 
 .debug_str      0x00000000      0xe7e
- .debug_str     0x00000000      0xe7e /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+ .debug_str     0x00000000      0xe7e /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                                 0x6d9 (size before relaxing)
- .debug_str     0x00000e7e        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .debug_str     0x00000e7e        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
                                 0x1df (size before relaxing)
  .debug_str     0x00000e7e        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
                                  0xd5 (size before relaxing)
@@ -295,9 +295,9 @@ LOAD linker stubs
                                  0xc3 (size before relaxing)
 
 .comment        0x00000000       0x12
- .comment       0x00000000       0x12 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+ .comment       0x00000000       0x12 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
                                  0x13 (size before relaxing)
- .comment       0x00000012        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .comment       0x00000012        0x0 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
                                  0x13 (size before relaxing)
  .comment       0x00000012        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
                                  0x13 (size before relaxing)
@@ -309,9 +309,9 @@ LOAD linker stubs
 .ARM.attributes
                 0x00000000       0x2c
  .ARM.attributes
-                0x00000000       0x2c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
+                0x00000000       0x2c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
  .ARM.attributes
-                0x0000002c       0x2c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+                0x0000002c       0x2c /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .ARM.attributes
                 0x00000058       0x1e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .ARM.attributes
@@ -332,8 +332,8 @@ LOAD linker stubs
                 0x00000172       0x1e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
 
 .debug_frame    0x00000000      0x214
- .debug_frame   0x00000000       0xfc /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccFf4Hva.o
- .debug_frame   0x000000fc       0x38 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccXfjyIR.o
+ .debug_frame   0x00000000       0xfc /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccZs8vzb.o
+ .debug_frame   0x000000fc       0x38 /var/folders/yk/vzzfx46d0vq4jq8x___b_g1c0000gn/T//ccMLwibN.o
  .debug_frame   0x00000134       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
  .debug_frame   0x00000154       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
  .debug_frame   0x00000174       0x34 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o)

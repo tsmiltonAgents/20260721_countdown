@@ -27,8 +27,8 @@ def export_gerbers(board_path, outdir):
                    check=True, capture_output=True)
     subprocess.run([KICAD_CLI, "pcb", "export", "drill",
                     "--format", "excellon", "--drill-origin", "plot",
-                    "--excellon-units", "mm", "--generate-map",
-                    "--map-format", "gerberx2",
+                    "--excellon-units", "mm", "--excellon-separate-th",
+                    "--generate-map", "--map-format", "gerberx2",
                     "-o", gdir + "/", board_path],
                    check=True, capture_output=True)
     return gdir
