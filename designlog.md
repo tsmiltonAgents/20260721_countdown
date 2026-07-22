@@ -268,6 +268,16 @@ bom.csv (11 lines, 3 Extended parts), cpl.csv (22 placements, U1 carrying
 the +270° QFN tape correction folded through the bottom-side formula).
 Firmware: 3,232 bytes, zero warnings, const vector table, all review fixes.
 
+## 2026-07-22 06:45 — Morning stock re-check: all clear, ORDER-READY
+
+All 11 BOM parts re-verified in the JLCPCB library this morning: every part
+in stock (MCU 1,776 / display 1,999 / holder 1,879; passives in the
+millions), no shortfall flags, and the display listing explicitly confirms
+**Common Cathode** (XL-SA2401SRWC) — matching the firmware drive logic.
+Three Extended-part feeder fees expected (U1, DS1, BT1). Design is frozen
+and order-ready: fab/gerbers.zip + fab/bom.csv + fab/cpl.csv per
+fab/ORDERING.md.
+
 - Decision: **no reverse-battery protection** (holder is keyed by mechanics,
   wristwatch practice, avoids Schottky Vf loss on a 2–3 V rail). B5819W (C8598)
   and AO3401A (C15127) noted as Basic-part fallbacks if a review disagrees.
