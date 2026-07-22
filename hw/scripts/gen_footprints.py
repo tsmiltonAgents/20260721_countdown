@@ -17,6 +17,9 @@ import os
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "lib", "countdown.pretty")
 
+MODEL = ('\t(model "{path}"\n\t\t(offset (xyz 0 0 0))\n'
+         '\t\t(scale (xyz 1 1 1))\n\t\t(rotate (xyz 0 0 0))\n\t)\n')
+
 HDR = '(footprint "{name}"\n\t(version 20240108)\n\t(generator "gen_footprints")\n\t(layer "F.Cu")\n\t(attr {attr})\n'
 
 
@@ -82,6 +85,7 @@ def display():
     s += circle(-8.3, 5.0, 0.15, "F.SilkS", 0.3, "yes")
     s += text_fab("28.5x10 4-DIG", 0, 0)
     s += rect(-14.4, -5.6, 14.4, 5.6, "F.CrtYd", 0.05)
+    s += MODEL.format(path="${KIPRJMOD}/../mech/xl_sa2401.step")
     s += ")\n"
     return "XL-SA2401SRWC", s
 
@@ -110,6 +114,7 @@ def battery():
     s += text_fab("CR2032", -8.0, 0, 0.8)
     s += rect(-12.35, -8.15, 12.35, 8.15, "F.CrtYd", 0.05)  # body
     s += rect(12.15, -2.4, 15.35, 2.4, "F.CrtYd", 0.05)      # (+) tab zone
+    s += MODEL.format(path="${KIPRJMOD}/../mech/bs08_holder.step")
     s += ")\n"
     return "BS-08-B2AA001", s
 
@@ -133,6 +138,7 @@ def switch():
     for yy in (-2.55, 2.55):
         s += line(-2.0, yy, 2.0, yy, "F.SilkS", 0.15)
     s += rect(-3.95, -2.85, 3.95, 2.85, "F.CrtYd", 0.05)
+    s += MODEL.format(path="${KIPRJMOD}/../mech/ts1187a.step")
     s += ")\n"
     return "SW_TS-1187A", s
 

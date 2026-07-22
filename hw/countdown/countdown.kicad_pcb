@@ -815,6 +815,17 @@
 			(uuid "a25dd7a1-46d8-4be1-a0d6-ffc37cbc1c00")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/../mech/ts1187a.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "R_0603_1608Metric"
 		(layer "F.Cu")
@@ -1429,6 +1440,17 @@
 			(uuid "fd58477d-85f4-4305-86cd-394a66d810f3")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/../mech/xl_sa2401.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "R_0603_1608Metric"
 		(layer "F.Cu")
@@ -4624,6 +4646,17 @@
 			(uuid "768d2c8d-56f0-4ee5-b796-d4a682cae43a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/../mech/bs08_holder.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "C_0603_1608Metric"
 		(layer "B.Cu")

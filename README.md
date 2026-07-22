@@ -6,7 +6,7 @@ CR2032, it keeps time for years in deep sleep; press the button and the
 hours remaining glow for 8 seconds. Under 100 hours to go it switches to
 minutes (decimal point lit as the marker). At T-0 it shows `0.0.0.0`.
 
-![render](docs/renders/render_oblique.png)
+![render](docs/renders/render_oblique_3d.png)
 
 ## How it works
 
@@ -34,7 +34,8 @@ minutes (decimal point lit as the marker). At T-0 it shows `0.0.0.0`.
 | `hw/scripts/` | The full generation pipeline (see below) |
 | `fab/` | **JLCPCB order files: gerbers.zip, bom.csv, cpl.csv** |
 | `fw/` | Firmware (bare-metal C, no HAL; `make && make flash`) |
-| `docs/renders/` | Verification renders |
+| `docs/renders/` | Verification renders (incl. 3D-model views) |
+| `hw/mech/` | build123d part models (via earthtojake/text-to-cad CAD skill) → STEP |
 | `designlog.md` | Full engineering narrative, decisions and reviews |
 | `prompts.md` | Prompt log |
 
