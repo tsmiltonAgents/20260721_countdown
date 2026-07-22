@@ -1,6 +1,6 @@
 # T-MINUS — keyring countdown to 2026-10-10 12:00
 
-A 44 × 23 mm, 4-layer keyring PCB that counts down the hours to
+A 46 × 23 mm, 4-layer keyring PCB that counts down the hours to
 **10 October 2026, midday** on a red 4-digit 7-segment display. Powered by a
 CR2032, it keeps time for years in deep sleep; press the button and the
 hours remaining glow for 8 seconds. Under 100 hours to go it switches to
