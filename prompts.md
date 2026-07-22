@@ -37,3 +37,15 @@ bottom = (180 − rot + offset) mod 360, preview editable before payment.
    EXTI config arithmetic, BSRR patterns vs SWD pins, vector table, linker,
    freestanding-libc pitfalls, calendar math transcription, DST/timezone
    seeding, Stop-mode leakage paths.
+
+### 2026-07-22 01:20 — Footprint + DFM review agent
+
+3. **Footprint/DFM review**: every custom footprint re-derived from its real
+   datasheet (display pad grid/pin-1, battery holder pad edges + polarity
+   trap, switch land + diagonal wiring proof, keyring hole mechanics),
+   stock-footprint choices (QFN no-EP association, FC-135 land), double-sided
+   reflow retention math, JLC fab numbers. Outcome: footprints verified
+   dimensionally correct; board-level fixes applied (GND-only vias under the
+   VSS-bonded QFN die pad, via-to-via ≥0.72 mm gates, silkscreen moved off
+   pads + refs hidden, display pads widened to terminal width, real-silk
+   battery polarity, keyring hole upgraded to plated grounded wear ring).

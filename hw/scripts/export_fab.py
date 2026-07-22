@@ -80,6 +80,12 @@ def export_bom_cpl(board_path, outdir):
 
 if __name__ == "__main__":
     board_path, outdir = sys.argv[1], sys.argv[2]
-    export_gerbers(board_path, outdir)
+    gdir = export_gerbers(board_path, outdir)
     export_bom_cpl(board_path, outdir)
-    print("fab export complete:", outdir)
+    zip_path = os.path.join(outdir, "gerbers.zip")
+    if os.path.exists(zip_path):
+        os.remove(zip_path)
+    subprocess.run(["zip", "-j", "-q", zip_path] +
+                   [os.path.join(gdir, f) for f in sorted(os.listdir(gdir))],
+                   check=True)
+    print("fab export complete:", outdir, "->", zip_path)
