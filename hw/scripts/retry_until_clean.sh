@@ -10,6 +10,9 @@ for round in $(seq 1 ${MAX_ROUNDS:-12}); do
   $KP hw/scripts/finish_pcb.py 2>/dev/null >/dev/null
   $KC pcb drc --severity-error --schematic-parity --format json -o $HW/drc_check.json $HW/countdown.kicad_pcb 2>/dev/null >/dev/null
   N=$(python3 -c "import json;d=json.load(open('$HW/drc_check.json'));print(len(d['unconnected_items'])+len(d['violations']))")
+  $KP hw/scripts/board_gates.py 2>/dev/null | tail -3
+  G=$($KP hw/scripts/board_gates.py 2>/dev/null | grep -c "^GATE:")
+  N=$((N + G))
   echo "ROUND $round result: open issues = $N"
   if [ "$N" = "0" ]; then
     echo "PERFECT BOARD"

@@ -1,50 +1,82 @@
 ** Drc report for countdown.kicad_pcb **
-** Created on 2026-07-22T00:50:29 **
+** Created on 2026-07-22T01:10:17 **
 ** Report includes: Errors **
 
-** Found 0 DRC violations **
+** Found 2 DRC violations **
+[clearance]: Clearance violation (netclass 'Default' clearance 0.1500 mm; actual 0.1100 mm)
+    Rule: netclass 'Default'; error
+    @(38.8940 mm, 2.1391 mm): Track [SEG_DP] on In1.Cu, length 2.1786 mm
+    @(38.1262 mm, 0.6500 mm): Via [SEG_F] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Power' clearance 0.1500 mm; actual 0.0800 mm)
+    Rule: netclass 'Power'; error
+    @(19.1596 mm, 0.5154 mm): Track [SEG_F] on F.Cu, length 18.9671 mm
+    @(33.9000 mm, 1.1000 mm): Via [GND] on F.Cu - B.Cu
 
-** Found 10 unconnected pads **
+** Found 16 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(17.6750 mm, 2.0000 mm): Track [SEG_F] on B.Cu, length 0.0250 mm
-    @(17.6750 mm, 2.0000 mm): Pad 1 [SEG_F] of R6 on F.Cu
+    @(22.6200 mm, 16.3000 mm): Track [LED_C] on B.Cu, length 0.0200 mm
+    @(22.6200 mm, 16.3000 mm): Pad 4 [LED_C] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(25.1600 mm, 7.7000 mm): Track [DIG_3] on B.Cu, length 0.0400 mm
-    @(25.1600 mm, 7.7000 mm): Pad 8 [DIG_3] of DS1 on F.Cu
+    @(25.3000 mm, 20.0000 mm): Track [LED_C] on B.Cu, length 0.0250 mm
+    @(25.3250 mm, 20.0000 mm): Pad 2 [LED_C] of R3 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(22.6200 mm, 7.7000 mm): Track [DIG_2] on B.Cu, length 0.0200 mm
-    @(22.6200 mm, 7.7000 mm): Pad 9 [DIG_2] of DS1 on F.Cu
+    @(20.0800 mm, 16.3000 mm): Track [LED_DP] on B.Cu, length 0.0200 mm
+    @(20.0800 mm, 16.3000 mm): Pad 3 [LED_DP] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(23.6750 mm, 20.0000 mm): Track [SEG_C] on B.Cu, length 1.1250 mm
-    @(23.6750 mm, 20.0000 mm): Pad 1 [SEG_C] of R3 on F.Cu
+    @(21.8000 mm, 20.0000 mm): Track [LED_DP] on B.Cu, length 0.0250 mm
+    @(21.8250 mm, 20.0000 mm): Pad 2 [LED_DP] of R8 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(13.1750 mm, 20.0000 mm): Pad 1 [SEG_E] of R5 on F.Cu
-    @(38.1000 mm, 3.0625 mm): Pad 10 [SEG_E] of U1 on B.Cu
+    @(19.3250 mm, 2.0000 mm): Track [LED_F] on B.Cu, length 0.0250 mm
+    @(19.3250 mm, 2.0000 mm): Pad 2 [LED_F] of R6 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(25.6750 mm, 2.0000 mm): Track [SEG_B] on B.Cu, length 2.1250 mm
-    @(25.6750 mm, 2.0000 mm): Pad 1 [SEG_B] of R2 on F.Cu
+    @(20.1000 mm, 7.7000 mm): Track [LED_F] on B.Cu, length 0.0200 mm
+    @(20.0800 mm, 7.7000 mm): Pad 10 [LED_F] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(13.6750 mm, 2.0000 mm): Pad 1 [SEG_A] of R1 on F.Cu
-    @(13.6750 mm, 2.0000 mm): Track [SEG_A] on B.Cu, length 0.0250 mm
+    @(17.5400 mm, 16.3000 mm): Track [LED_D] on B.Cu, length 0.0400 mm
+    @(17.5400 mm, 16.3000 mm): Pad 2 [LED_D] of DS1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(33.0000 mm, 2.6750 mm): Pad 1 [LSE_IN] of C7 on B.Cu
-    @(34.4000 mm, 4.3500 mm): Pad 1 [LSE_IN] of Y1 on B.Cu
+    @(18.3000 mm, 20.0000 mm): Track [LED_D] on B.Cu, length 0.0250 mm
+    @(18.3250 mm, 20.0000 mm): Pad 2 [LED_D] of R4 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(34.4000 mm, 4.3500 mm): Pad 1 [LSE_IN] of Y1 on B.Cu
-    @(36.6625 mm, 6.0000 mm): Pad 2 [LSE_IN] of U1 on B.Cu
+    @(15.3250 mm, 2.0000 mm): Track [LED_A] on B.Cu, length 0.0250 mm
+    @(15.3250 mm, 2.0000 mm): Pad 2 [LED_A] of R1 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(35.5000 mm, 17.8000 mm): Track [NRST] on B.Cu, length 0.4243 mm
-    @(36.6625 mm, 5.0000 mm): Pad 4 [NRST] of U1 on B.Cu
+    @(17.5000 mm, 7.7000 mm): Track [LED_A] on B.Cu, length 0.0400 mm
+    @(17.5400 mm, 7.7000 mm): Pad 11 [LED_A] of DS1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(14.8250 mm, 20.0000 mm): Track [LED_E] on B.Cu, length 0.0250 mm
+    @(14.8250 mm, 20.0000 mm): Pad 2 [LED_E] of R5 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(14.9000 mm, 16.4000 mm): Track [LED_E] on B.Cu, length 0.1414 mm
+    @(15.0000 mm, 16.3000 mm): Pad 1 [LED_E] of DS1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(27.3250 mm, 2.0000 mm): Track [LED_B] on B.Cu, length 0.0250 mm
+    @(27.3250 mm, 2.0000 mm): Pad 2 [LED_B] of R2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(27.6000 mm, 7.6000 mm): Track [LED_B] on B.Cu, length 0.1414 mm
+    @(27.7000 mm, 7.7000 mm): Pad 7 [LED_B] of DS1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(25.1600 mm, 16.3000 mm): Track [LED_G] on B.Cu, length 0.0400 mm
+    @(25.1600 mm, 16.3000 mm): Pad 5 [LED_G] of DS1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(28.8000 mm, 20.0000 mm): Track [LED_G] on B.Cu, length 0.0250 mm
+    @(28.8250 mm, 20.0000 mm): Pad 2 [LED_G] of R7 on F.Cu
 
 ** Found 0 Footprint errors **
 

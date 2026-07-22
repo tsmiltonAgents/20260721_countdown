@@ -37,7 +37,9 @@ load_resolved(f"{KLIB}/Device.kicad_sym", "R", "Device:R")
 load_resolved(f"{KLIB}/Device.kicad_sym", "C", "Device:C")
 load_resolved(f"{KLIB}/Device.kicad_sym", "Crystal", "Device:Crystal")
 load_resolved(f"{KLIB}/power.kicad_sym", "PWR_FLAG", "power:PWR_FLAG")
-load_resolved(f"{KLIB}/Mechanical.kicad_sym", "MountingHole", "Mechanical:MountingHole")
+sch.add_lib_symbol("countdown:KEYRING_HOLE", make_symbol("KEYRING_HOLE", [
+    ("1", "RING", "passive", "L", 0),
+], "H"))
 
 sch.add_lib_symbol("countdown:DISPLAY_4DIG", make_symbol("DISPLAY_4DIG", [
     ("11", "A", "passive", "L", 0),
@@ -132,8 +134,8 @@ sch.place("countdown:TC2030", "J1", "TC2030-SWD", (45, 150), {
     "1": "VDD", "2": "SWDIO", "3": "NRST", "4": "SWCLK", "5": "GND",
 }, footprint="Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical")
 
-sch.place("Mechanical:MountingHole", "H1", "KeyringHole", (20, 170), {},
-          footprint="countdown:KeyringHole_4mm")
+sch.place("countdown:KEYRING_HOLE", "H1", "KeyringHole", (20, 170),
+          {"1": "GND"}, footprint="countdown:KeyringHole_4mm")
 
 sch.place("power:PWR_FLAG", "#FLG01", "PWR_FLAG", (20, 190), {"1": "VDD"})
 sch.place("power:PWR_FLAG", "#FLG02", "PWR_FLAG", (30, 190), {"1": "GND"})

@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-07-22T00:52:01",
+    "date": "2026-07-22T01:10:54",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -35,43 +35,112 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [LED_G] on B.Cu, length 0.0400 mm",
+                    "description": "Pad 2 [LED_F] of R6 on F.Cu",
                     "pos": {
-                        "x": 25.16,
+                        "x": 19.325,
+                        "y": 2.0
+                    },
+                    "uuid": "a0d1061e-327a-48cb-a40e-b3a62b523fbf"
+                },
+                {
+                    "description": "Pad 10 [LED_F] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 20.08,
+                        "y": 7.7
+                    },
+                    "uuid": "e0ae7769-60ba-411b-bcd0-52f222965c05"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [LED_B] of R2 on F.Cu",
+                    "pos": {
+                        "x": 27.325,
+                        "y": 2.0
+                    },
+                    "uuid": "0b93ea98-a694-440d-8c3c-a90b3d2c1672"
+                },
+                {
+                    "description": "Pad 7 [LED_B] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 27.7,
+                        "y": 7.7
+                    },
+                    "uuid": "a7b2f351-fd49-4e7e-9155-fdd98a3ffcd6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [LED_E] of R5 on F.Cu",
+                    "pos": {
+                        "x": 14.825,
+                        "y": 20.0
+                    },
+                    "uuid": "8847f746-a17f-49ea-a74c-6ebf43e544a8"
+                },
+                {
+                    "description": "Pad 1 [LED_E] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 15.0,
                         "y": 16.3
                     },
-                    "uuid": "c8871e3e-e7d2-48d9-b66f-0579b6788948"
+                    "uuid": "045494b1-fef4-49ea-8a47-056d7c7c8827"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 3 [LED_DP] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 20.08,
+                        "y": 16.3
+                    },
+                    "uuid": "84d9fa6e-5756-48bd-9010-352c7a4a2848"
                 },
+                {
+                    "description": "Pad 2 [LED_DP] of R8 on F.Cu",
+                    "pos": {
+                        "x": 21.825,
+                        "y": 20.0
+                    },
+                    "uuid": "2daeb536-0fa5-4d92-bdab-3c13f2b0902f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
                 {
                     "description": "Pad 5 [LED_G] of DS1 on F.Cu",
                     "pos": {
                         "x": 25.16,
                         "y": 16.3
                     },
-                    "uuid": "c06a7ee7-ff79-4de7-a327-3612b535d7b1"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
+                    "uuid": "22e0d270-e28f-4aad-989a-2f84acd5903d"
+                },
                 {
                     "description": "Pad 2 [LED_G] of R7 on F.Cu",
                     "pos": {
                         "x": 28.825,
                         "y": 20.0
                     },
-                    "uuid": "05aeb8c0-e4d5-44cb-b411-eda6ba365bef"
-                },
-                {
-                    "description": "Track [LED_G] on B.Cu, length 0.0250 mm",
-                    "pos": {
-                        "x": 28.8,
-                        "y": 20.0
-                    },
-                    "uuid": "68adb4a6-b9a7-4e23-9395-3a748e12d852"
+                    "uuid": "e7b05eea-6f94-4c69-b8ac-41525433d97c"
                 }
             ],
             "severity": "error",
@@ -81,20 +150,135 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad 1 [SEG_D] of R4 on F.Cu",
+                    "description": "Pad 2 [LED_D] of DS1 on F.Cu",
                     "pos": {
-                        "x": 16.675,
-                        "y": 20.0
+                        "x": 17.54,
+                        "y": 16.3
                     },
-                    "uuid": "01da49bc-840a-4d42-9abe-c62a9392251a"
+                    "uuid": "bd83dcac-7adb-4218-8889-4aac75252344"
                 },
                 {
-                    "description": "Pad 9 [SEG_D] of U1 on B.Cu",
+                    "description": "Pad 2 [LED_D] of R4 on F.Cu",
                     "pos": {
-                        "x": 37.6,
-                        "y": 3.0625
+                        "x": 18.325,
+                        "y": 20.0
                     },
-                    "uuid": "ec3da53b-a57d-44b1-8538-af81eaaa7acb"
+                    "uuid": "a7c1ec54-78f0-4032-9311-d36f5b718769"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 4 [LED_C] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 22.62,
+                        "y": 16.3
+                    },
+                    "uuid": "ff922fd4-9017-4a06-aeb7-a5ae314808b8"
+                },
+                {
+                    "description": "Pad 2 [LED_C] of R3 on F.Cu",
+                    "pos": {
+                        "x": 25.325,
+                        "y": 20.0
+                    },
+                    "uuid": "7c5ea136-7687-403c-888b-1ed0e0269a4b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [SEG_A] of R1 on F.Cu",
+                    "pos": {
+                        "x": 13.675,
+                        "y": 2.0
+                    },
+                    "uuid": "5b330db4-d37c-40fb-b081-5c80c028d8cd"
+                },
+                {
+                    "description": "Pad 6 [SEG_A] of U1 on B.Cu",
+                    "pos": {
+                        "x": 36.6625,
+                        "y": 4.0
+                    },
+                    "uuid": "1f359b02-3613-44b9-a4e5-3e2db827b8df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [LED_A] of R1 on F.Cu",
+                    "pos": {
+                        "x": 15.325,
+                        "y": 2.0
+                    },
+                    "uuid": "8e084964-a032-4a1d-85e3-947a4f19bfb5"
+                },
+                {
+                    "description": "Pad 11 [LED_A] of DS1 on F.Cu",
+                    "pos": {
+                        "x": 17.54,
+                        "y": 7.7
+                    },
+                    "uuid": "6688348f-f79d-4b7a-bbbb-fe3b448957e5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [LSE_IN] on B.Cu, length 0.7517 mm",
+                    "pos": {
+                        "x": 34.4,
+                        "y": 4.35
+                    },
+                    "uuid": "ae59a8c8-a3c9-4427-bcc6-5d1c20b99271"
+                },
+                {
+                    "description": "Pad 2 [LSE_IN] of U1 on B.Cu",
+                    "pos": {
+                        "x": 36.6625,
+                        "y": 6.0
+                    },
+                    "uuid": "8481bf0b-bb76-4a2b-877e-eda1d1e04c47"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [LSE_OUT] on B.Cu, length 0.8461 mm",
+                    "pos": {
+                        "x": 34.4,
+                        "y": 6.0983
+                    },
+                    "uuid": "6c38d4ba-ccd1-4016-bee7-be7ea8e4360e"
+                },
+                {
+                    "description": "Pad 1 [LSE_OUT] of C8 on B.Cu",
+                    "pos": {
+                        "x": 34.9,
+                        "y": 2.775
+                    },
+                    "uuid": "4c10335b-5cb3-4b77-8e91-c39a919e105b"
                 }
             ],
             "severity": "error",
@@ -103,7 +287,7 @@
     ],
     "violations": [
         {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1936 mm)",
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1800 mm)",
             "items": [
                 {
                     "description": "Segment on Edge.Cuts",
@@ -111,22 +295,22 @@
                         "x": 3.0,
                         "y": 0.0
                     },
-                    "uuid": "73757797-e957-4632-82e5-a102726dff4a"
+                    "uuid": "d0a5c957-330d-4a2a-98cd-229e2f57b3fb"
                 },
                 {
-                    "description": "Track [SEG_E] on In1.Cu, length 1.1577 mm",
+                    "description": "Via [SEG_F] on F.Cu - B.Cu",
                     "pos": {
-                        "x": 35.3538,
-                        "y": 0.2936
+                        "x": 19.195,
+                        "y": 0.48
                     },
-                    "uuid": "1c8546f3-a12f-4a31-b8cb-13f92c716897"
+                    "uuid": "9950a0b9-e32f-4c37-b9ef-9778243790b4"
                 }
             ],
             "severity": "error",
             "type": "copper_edge_clearance"
         },
         {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1936 mm)",
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2391 mm)",
             "items": [
                 {
                     "description": "Segment on Edge.Cuts",
@@ -134,22 +318,22 @@
                         "x": 3.0,
                         "y": 0.0
                     },
-                    "uuid": "73757797-e957-4632-82e5-a102726dff4a"
+                    "uuid": "d0a5c957-330d-4a2a-98cd-229e2f57b3fb"
                 },
                 {
-                    "description": "Track [SEG_E] on In1.Cu, length 0.6671 mm",
+                    "description": "Track [SEG_F] on In2.Cu, length 0.1993 mm",
                     "pos": {
-                        "x": 37.8454,
-                        "y": 0.7653
+                        "x": 19.3359,
+                        "y": 0.3391
                     },
-                    "uuid": "45c08c38-b127-4917-804f-4b1c4d55bf5f"
+                    "uuid": "4723053e-b046-4c95-a2c3-b428b0650472"
                 }
             ],
             "severity": "error",
             "type": "copper_edge_clearance"
         },
         {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1936 mm)",
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2391 mm)",
             "items": [
                 {
                     "description": "Segment on Edge.Cuts",
@@ -157,22 +341,22 @@
                         "x": 3.0,
                         "y": 0.0
                     },
-                    "uuid": "73757797-e957-4632-82e5-a102726dff4a"
+                    "uuid": "d0a5c957-330d-4a2a-98cd-229e2f57b3fb"
                 },
                 {
-                    "description": "Track [SEG_E] on In1.Cu, length 0.6671 mm",
+                    "description": "Track [SEG_F] on In2.Cu, length 17.8220 mm",
                     "pos": {
-                        "x": 37.8454,
-                        "y": 0.7653
+                        "x": 37.1579,
+                        "y": 0.3391
                     },
-                    "uuid": "4e1232d3-fa3c-472e-ab9e-b3fa0a44e88c"
+                    "uuid": "640e92ba-5b8e-483e-8e92-2fd2549daba5"
                 }
             ],
             "severity": "error",
             "type": "copper_edge_clearance"
         },
         {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1936 mm)",
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2391 mm)",
             "items": [
                 {
                     "description": "Segment on Edge.Cuts",
@@ -180,38 +364,15 @@
                         "x": 3.0,
                         "y": 0.0
                     },
-                    "uuid": "73757797-e957-4632-82e5-a102726dff4a"
+                    "uuid": "d0a5c957-330d-4a2a-98cd-229e2f57b3fb"
                 },
                 {
-                    "description": "Track [SEG_E] on In1.Cu, length 2.0199 mm",
+                    "description": "Track [SEG_F] on In2.Cu, length 1.1983 mm",
                     "pos": {
-                        "x": 37.3737,
-                        "y": 0.2936
+                        "x": 38.0052,
+                        "y": 1.1864
                     },
-                    "uuid": "5dbaa1bb-686a-4c69-b130-b4fa762dd28b"
-                }
-            ],
-            "severity": "error",
-            "type": "copper_edge_clearance"
-        },
-        {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.1936 mm)",
-            "items": [
-                {
-                    "description": "Segment on Edge.Cuts",
-                    "pos": {
-                        "x": 3.0,
-                        "y": 0.0
-                    },
-                    "uuid": "73757797-e957-4632-82e5-a102726dff4a"
-                },
-                {
-                    "description": "Track [SEG_E] on In1.Cu, length 1.1577 mm",
-                    "pos": {
-                        "x": 35.3538,
-                        "y": 0.2936
-                    },
-                    "uuid": "9e47e0dc-16e6-4916-a816-590a067f6eea"
+                    "uuid": "cb543f6a-a50c-4f79-853e-2cd95c09cbd5"
                 }
             ],
             "severity": "error",

@@ -78,8 +78,17 @@ class Obstacles:
                 self.segs[t.GetLayer()].append(
                     (mm(t.GetStart().x), mm(t.GetStart().y),
                      mm(t.GetEnd().x), mm(t.GetEnd().y), mm(t.GetWidth()) / 2))
-        # keyring hole keepout ring + border handled by EDGE margin checks
-        self.all_circles.append((4.0, 11.5, 3.5))
+        # (keyring hole is a plated pad now — covered by pad obstacles)
+        self.netcode = netcode
+        self.netname = ""
+        for name, item in board.GetNetsByName().items():
+            if item.GetNetCode() == netcode:
+                self.netname = str(name)
+        # ALL via positions (any net): same-net vias still need 0.72mm c-c
+        # for JLC hole-to-hole spacing
+        self.any_vias = [(mm(t.GetPosition().x), mm(t.GetPosition().y))
+                         for t in board.GetTracks()
+                         if t.Type() == pcbnew.PCB_VIA_T]
 
     def build_grid(self):
         """Rasterize obstacles once: blocked cell sets per layer + via grid."""
@@ -162,6 +171,11 @@ class Obstacles:
     def via_ok(self, x, y):
         if not (EDGE <= x <= BOARD_W - EDGE and EDGE <= y <= BOARD_H - EDGE):
             return False
+        if self.netname != "GND" and 36.8 <= x <= 40.4 and 3.2 <= y <= 6.8:
+            return False  # QFN die pad is VSS-bonded: only GND vias beneath
+        for vx, vy in self.any_vias:
+            if (x - vx) ** 2 + (y - vy) ** 2 < 0.72 ** 2:
+                return False
         return (round(x / GRID), round(y / GRID)) not in self.via_cells
 
 

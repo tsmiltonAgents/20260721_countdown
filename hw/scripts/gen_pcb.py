@@ -311,6 +311,7 @@ def main():
             if fld is not None:
                 fld.SetVisible(False)
                 fld.SetLayer(pcbnew.F_Fab if side == "F" else pcbnew.B_Fab)
+        fp.Reference().SetVisible(False)  # bare-board look; CPL drives placement
         for pad in fp.Pads():
             key = (ref, pad.GetNumber())
             if key in pin2net:
@@ -359,20 +360,8 @@ def main():
     # (border keepout strips removed: freerouting mishandles them; edge
     # violations are fixed deterministically post-import instead)
 
-    ka = pcbnew.ZONE(board)
-    ka.SetIsRuleArea(True)
-    ka.SetDoNotAllowTracks(True)
-    ka.SetDoNotAllowVias(True)
-    ka.SetDoNotAllowZoneFills(True)
-    ka.SetLayerSet(pcbnew.LSET.AllCuMask(4))
-    ka.Outline().NewOutline()
-    hx, hy, kr = PLACE["H1"][0], PLACE["H1"][1], 3.4
-    import math
-    for i in range(16):
-        a = i / 16 * 2 * math.pi
-        ka.Outline().Append(pcbnew.VECTOR2I_MM(hx + kr * math.cos(a),
-                                               hy + kr * math.sin(a)))
-    board.Add(ka)
+    # (keyring hole is now a plated GND pad — its own copper clearance rules
+    # keep other nets away; no rule area needed)
 
     # power fanout happens post-route (fanout_post.py); only the two
     # QFN-corner power pins are pre-fanned here (their pocket gets walled in

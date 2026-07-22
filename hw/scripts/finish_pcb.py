@@ -49,9 +49,9 @@ def main():
     texts = [pcbnew.ToMM(t.GetPosition().x) for t in board.GetDrawings()
              if isinstance(t, pcbnew.PCB_TEXT)]
     if not texts:
-        add_text(board, "T-MINUS", 21.35, 20.3, pcbnew.F_SilkS, 1.6, 0.28, bold=True)
-        add_text(board, "2026-10-10 12:00", 21.5, 2.6, pcbnew.F_SilkS, 1.0, 0.16)
-        add_text(board, "COUNTDOWN v1 2026", 13.5, 2.2, pcbnew.B_SilkS, 1.0,
+        add_text(board, "T-MINUS", 21.35, 18.1, pcbnew.F_SilkS, 1.4, 0.24, bold=True)
+        add_text(board, "2026-10-10 12:00", 21.35, 4.6, pcbnew.F_SilkS, 0.9, 0.15)
+        add_text(board, "COUNTDOWN v1 2026", 21.0, 21.3, pcbnew.B_SilkS, 0.9,
                  0.15, mirror=True)
 
     filler = pcbnew.ZONE_FILLER(board)

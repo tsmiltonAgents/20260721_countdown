@@ -63,10 +63,10 @@ def display():
     # signal pads: 1.6 wide x 2.0 tall, centers y=+/-4.3 (wrap-around toe)
     for i in range(6):  # pins 1-6 bottom L->R
         x = -6.35 + i * pitch
-        s += pad_smd(i + 1, round(x, 2), 4.3, 1.6, 2.0)
+        s += pad_smd(i + 1, round(x, 2), 4.3, 2.0, 2.2)
     for i in range(6):  # pins 7-12 top R->L
         x = 6.35 - i * pitch
-        s += pad_smd(7 + i, round(x, 2), -4.3, 1.6, 2.0)
+        s += pad_smd(7 + i, round(x, 2), -4.3, 2.0, 2.2)
     # anchor pads (mechanical, unnumbered -> not in netlist)
     for x in (-11.43, 11.43):
         for y in (-4.3, 4.3):
@@ -79,7 +79,7 @@ def display():
     s += line(-14.25, -5.0, -14.25, 5.0, "F.SilkS", 0.15)
     s += line(14.25, -5.0, 14.25, 5.0, "F.SilkS", 0.15)
     # pin 1 marker (bottom-left signal pad)
-    s += circle(-6.35, 6.0, 0.15, "F.SilkS", 0.3, "yes")
+    s += circle(-8.3, 5.0, 0.15, "F.SilkS", 0.3, "yes")
     s += text_fab("28.5x10 4-DIG", 0, 0)
     s += rect(-14.4, -5.6, 14.4, 5.6, "F.CrtYd", 0.05)
     s += ")\n"
@@ -103,9 +103,11 @@ def battery():
     # silk: top/bottom edges only (leave left open = insertion mouth)
     for yy in (-7.85, 7.85):
         s += line(-12.05, yy, 12.05, yy, "F.SilkS", 0.15)
-    s += line(12.05, -7.85, 12.05, 7.85, "F.SilkS", 0.15)
-    s += text_fab("+", 11.0, -3.0, 1.2)
-    s += text_fab("CR2032 v", -13.5, 0, 0.8)
+    s += line(12.05, -7.85, 12.05, -2.6, "F.SilkS", 0.15)
+    s += line(12.05, 2.6, 12.05, 7.85, "F.SilkS", 0.15)
+    s += (f'\t(fp_text user "+" (at 13.0 -3.6 0) (layer "F.SilkS") '
+          f'(effects (font (size 1.2 1.2) (thickness 0.2))))\n')
+    s += text_fab("CR2032", -8.0, 0, 0.8)
     s += rect(-12.35, -8.15, 12.35, 8.15, "F.CrtYd", 0.05)  # body
     s += rect(12.15, -2.4, 15.35, 2.4, "F.CrtYd", 0.05)      # (+) tab zone
     s += ")\n"
@@ -138,15 +140,14 @@ def switch():
 def keyring_hole():
     s = HDR.format(name="KeyringHole_4mm",
                    attr="exclude_from_pos_files exclude_from_bom")
+    # plated + grounded: the split ring wears on ENIG copper, not laminate
     s += prop("Reference", "REF**", -4.5, hide=True, layer="F.SilkS")
     s += prop("Value", "KeyringHole", 4.5)
     s += prop("Footprint", "", 6)
     s += prop("Datasheet", "", 6)
     s += prop("Description", "4mm NPTH keyring hole", 6)
-    s += ('\t(pad "" np_thru_hole circle (at 0 0) (size 6.9 6.9) '
-          '(drill 4.0) (layers "F.Mask" "B.Mask"))\n')
-    s += circle(0, 0, 2.6, "F.SilkS", 0.2)
-    s += circle(0, 0, 2.6, "B.SilkS", 0.2)
+    s += ('\t(pad "1" thru_hole circle (at 0 0) (size 6.6 6.6) '
+          '(drill 4.0) (layers "*.Cu" "*.Mask"))\n')
     s += circle(0, 0, 2.8, "F.CrtYd", 0.05)
     s += ")\n"
     return "KeyringHole_4mm", s
