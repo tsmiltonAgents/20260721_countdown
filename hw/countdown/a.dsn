@@ -510,30 +510,6 @@
       (pins U1-16 U1-16@1 U1-28 SW1-4 R9-2 J1-5 H1-1 C8-2 C7-2 C6-2 C5-2 C4-2 C3-2
         C2-2 C1-2 BT1-2)
     )
-    (net LED_A
-      (pins R1-2 DS1-11)
-    )
-    (net LED_B
-      (pins R2-2 DS1-7)
-    )
-    (net LED_C
-      (pins R3-2 DS1-4)
-    )
-    (net LED_D
-      (pins R4-2 DS1-2)
-    )
-    (net LED_DP
-      (pins R8-2 DS1-3)
-    )
-    (net LED_E
-      (pins R5-2 DS1-1)
-    )
-    (net LED_F
-      (pins R6-2 DS1-10)
-    )
-    (net LED_G
-      (pins R7-2 DS1-5)
-    )
     (net LSE_IN
       (pins Y1-1 U1-2 C7-1)
     )
@@ -576,32 +552,7 @@
     (net VDD
       (pins U1-1 U1-5 U1-17 J1-1 C6-1 C5-1 C4-1 C2-1 C1-1 BT1-1)
     )
-    (net "unconnected-(J1-NC-Pad6)"
-      (pins J1-6)
-    )
-    (net "unconnected-(SW1-B-Pad2)"
-      (pins SW1-2)
-    )
-    (net "unconnected-(SW1-C-Pad3)"
-      (pins SW1-3)
-    )
-    (net "unconnected-(U1-PA10-Pad20)"
-      (pins U1-20)
-    )
-    (net "unconnected-(U1-PA15-Pad23)"
-      (pins U1-23)
-    )
-    (net "unconnected-(U1-PB6-Pad25)"
-      (pins U1-25)
-    )
-    (net "unconnected-(U1-PB7-Pad26)"
-      (pins U1-26)
-    )
-    (class kicad_default BOOT0 BTN DIG_1 DIG_2 DIG_3 DIG_4 LED_A LED_B LED_C
-      LED_D LED_DP LED_E LED_F LED_G LSE_IN LSE_OUT NRST SEG_A SEG_B SEG_C
-      SEG_D SEG_DP SEG_E SEG_F SEG_G SWCLK SWDIO "unconnected-(J1-NC-Pad6)"
-      "unconnected-(SW1-B-Pad2)" "unconnected-(SW1-C-Pad3)" "unconnected-(U1-PA10-Pad20)"
-      "unconnected-(U1-PA15-Pad23)" "unconnected-(U1-PB6-Pad25)" "unconnected-(U1-PB7-Pad26)"
+    (class kicad_default BOOT0 BTN DIG_1 DIG_2 DIG_3 DIG_4 LSE_IN LSE_OUT NRST SEG_A SEG_B SEG_C SEG_D SEG_DP SEG_E SEG_F SEG_G SWCLK SWDIO
       (circuit
         (use_via "Via[0-3]_600:300_um")
       )
@@ -621,9 +572,5 @@
     )
   )
   (wiring
-    (wire (path B.Cu 250  37100 -6997.5  37100 -9500)(net GND)(type protect))
-    (wire (path B.Cu 250  36602.5 -6500  36100 -7600)(net VDD)(type protect))
-    (via "Via[0-3]_600:300_um"  37100 -9500 (net GND)(type protect))
-    (via "Via[0-3]_600:300_um"  36100 -7600 (net VDD)(type protect))
   )
 )

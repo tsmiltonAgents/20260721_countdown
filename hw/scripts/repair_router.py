@@ -364,6 +364,36 @@ def add_path(board, path, netinfo):
             board.Add(tr)
 
 
+def fix_edge_tracks(board):
+    """Delete track segments that violate the copper-to-edge margin
+    (including R3 corner arcs); the A* repair then reroutes them lawfully."""
+    R = 3.0
+    removed = 0
+    for t in list(board.GetTracks()):
+        if t.Type() != pcbnew.PCB_TRACE_T:
+            continue
+        w2 = mm(t.GetWidth()) / 2
+        margin = 0.305 + w2
+        bad = False
+        for p0 in (t.GetStart(), t.GetEnd()):
+            x, y = mm(p0.x), mm(p0.y)
+            if (x < margin or x > BOARD_W - margin or
+                    y < margin or y > BOARD_H - margin):
+                bad = True
+            if (x < R or x > BOARD_W - R) and (y < R or y > BOARD_H - R):
+                for cx, cy in ((R, R), (BOARD_W - R, R), (R, BOARD_H - R),
+                               (BOARD_W - R, BOARD_H - R)):
+                    if abs(x - cx) <= R and abs(y - cy) <= R:
+                        if math.hypot(x - cx, y - cy) > R - margin:
+                            bad = True
+        if bad:
+            board.Remove(t)
+            removed += 1
+    if removed:
+        print(f"edge tracks removed: {removed}")
+    return removed
+
+
 def fix_edge_vias(board):
     """Nudge vias violating copper-edge clearance back inside, moving
     coincident track endpoints with them."""
@@ -400,11 +430,18 @@ def main():
             print("repair: no unconnected items remain")
             return
         prio = _os.environ.get("REPAIR_PRIORITY", "")
+        # escape-critical first: pairs whose endpoint sits nearest the QFN
+        # get routed before the surrounding field clogs
+        def qfn_dist(pr):
+            (ax, ay), (bx, by) = pr[0], pr[1]
+            return min(math.hypot(ax - 38.6, ay - 5.0),
+                       math.hypot(bx - 38.6, by - 5.0))
+        pairs.sort(key=qfn_dist)
         if prio:
             pairs.sort(key=lambda pr: 0 if f"[{prio}]" in pr[4] else 1)
         print(f"repair iteration {it}: {len(pairs)} unconnected pairs")
         board = pcbnew.LoadBoard(PCB)
-        progress = fix_edge_vias(board)
+        progress = fix_edge_vias(board) + fix_edge_tracks(board)
         done_nets = set()
         for (ax, ay), (bx, by), la_hint, lb_hint, _desc in pairs:
             ncode, nname = netcode_at(board, ax, ay)
@@ -412,11 +449,7 @@ def main():
                 ncode, nname = netcode_at(board, bx, by)
             if ncode is None or nname in done_nets:
                 continue
-            if nname in ("GND", "VDD"):
-                # power lives on the planes + fanout vias; a disconnected
-                # power pad is a fanout/fill problem, not a routing one
-                print(f"  SKIP power pair {nname} ({ax:.2f},{ay:.2f})")
-                continue
+
             la = la_hint or item_layer(board, ax, ay, ncode) or pcbnew.B_Cu
             lb = lb_hint or item_layer(board, bx, by, ncode) or pcbnew.B_Cu
             if (la_hint is not None and la_hint == lb_hint and

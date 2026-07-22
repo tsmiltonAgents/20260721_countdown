@@ -290,6 +290,21 @@ def main():
             raise SystemExit(f"footprint not found: {fpid}")
         fp.SetReference(ref)
         fp.SetValue(val)
+        if ref == "U1":
+            # UFQFPN28 exposed die pad is VSS-bonded (DocID027063): add it as
+            # GND copper, mask-opened, NO paste (assembly unchanged). Also
+            # physically blocks the autorouter from parking vias under it.
+            ep = pcbnew.PAD(fp)
+            ep.SetAttribute(pcbnew.PAD_ATTRIB_SMD)
+            ep.SetShape(pcbnew.PAD_SHAPE_RECT)
+            ep.SetSize(pcbnew.VECTOR2I_MM(2.7, 2.7))
+            ep.SetPosition(fp.GetPosition())
+            ep.SetNumber("16")  # same net as VSS pin 16
+            ls = pcbnew.LSET()
+            ls.AddLayer(pcbnew.F_Cu)
+            ls.AddLayer(pcbnew.F_Mask)
+            ep.SetLayerSet(ls)
+            fp.Add(ep)
         x, y, rot, side = PLACE[ref]
         board.Add(fp)
         fp.SetPosition(pcbnew.VECTOR2I_MM(x, y))
@@ -366,7 +381,6 @@ def main():
     # power fanout happens post-route (fanout_post.py); only the two
     # QFN-corner power pins are pre-fanned here (their pocket gets walled in
     # by signal escapes otherwise)
-    add_u1_power_vias(board, netinfo)
 
     filler = pcbnew.ZONE_FILLER(board)
     filler.Fill(board.Zones())
